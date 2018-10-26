@@ -1,0 +1,79 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "waterGrass3",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.7692307692307693,
+  "sample": 13,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "99e23e11-57f9-4ec5-ad76-50aa7767aeb8"
+            }
+          },
+          {
+            "frame": 0.07692307692307693,
+            "value": {
+              "__uuid__": "101dba40-42e4-4a4f-821b-5b9d0b6ab02a"
+            }
+          },
+          {
+            "frame": 0.15384615384615385,
+            "value": {
+              "__uuid__": "7a3738dc-5a5a-4eff-9532-e4ae0c02c999"
+            }
+          },
+          {
+            "frame": 0.23076923076923078,
+            "value": {
+              "__uuid__": "8ebfd4df-85f4-4008-bdf9-aba0fe72ce54"
+            }
+          },
+          {
+            "frame": 0.3076923076923077,
+            "value": {
+              "__uuid__": "7d8ce277-bfc3-416c-8610-489d2868466a"
+            }
+          },
+          {
+            "frame": 0.38461538461538464,
+            "value": {
+              "__uuid__": "734a0dc9-99ca-473c-b0c5-6758acd3ed66"
+            }
+          },
+          {
+            "frame": 0.46153846153846156,
+            "value": {
+              "__uuid__": "b17fe41d-a39e-48fc-b6db-ca7641bce62d"
+            }
+          },
+          {
+            "frame": 0.5384615384615384,
+            "value": {
+              "__uuid__": "0a0a3aeb-4ecb-4e29-b9f1-932c2f93c1a6"
+            }
+          },
+          {
+            "frame": 0.6153846153846154,
+            "value": {
+              "__uuid__": "9da5458c-4295-406c-b45d-3a3d4be5c884"
+            }
+          },
+          {
+            "frame": 0.6923076923076923,
+            "value": {
+              "__uuid__": "1e6eb71f-3fde-4e24-8d65-91f0240213da"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

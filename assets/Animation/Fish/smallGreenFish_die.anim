@@ -1,0 +1,46 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "smallGreenFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 6,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "279ce6ae-ef6c-481c-80ab-c563452c2b40"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "30ca9c5f-4e5b-44a4-9295-c0064ee91f8e"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "dcf77ec7-b32b-459f-b6bc-be9a814a6826"
+            }
+          },
+          {
+            "frame": 0.5
+          },
+          {
+            "frame": 0.6666666666666666
+          },
+          {
+            "frame": 0.8333333333333334
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "porcupineFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1.6666666666666667,
+  "sample": 3,
+  "speed": 2,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "732b5c34-0f9e-42da-8833-9b49a540242c"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "a9f3079a-a08e-4bd4-b3c8-0e1b093f0073"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "4960ed52-81d2-4fe7-a066-57d579337594"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "77805324-7fb7-419b-a7ea-33efba19ccc8"
+            }
+          },
+          {
+            "frame": 1.3333333333333333,
+            "value": {
+              "__uuid__": "cc081324-bd78-4536-9121-efba1ec86223"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

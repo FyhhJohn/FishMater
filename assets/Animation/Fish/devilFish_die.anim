@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "devilFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 6,
+  "speed": 2,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "f0a129ee-2b4e-4cbd-932e-45a162b05f30"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "ba55a6f4-27d3-462c-aa3a-ca5a6280662a"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "8cd003e0-746e-45ef-80a3-59e2be437253"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "06b41d97-c2ee-48f7-bb2b-fc8bd4ebed40"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "2c994df3-766f-45c1-8c67-3b39fd419123"
+            }
+          },
+          {
+            "frame": 0.8333333333333334,
+            "value": {
+              "__uuid__": "3f66b550-eb63-43b1-98b1-dcad77e8c2bb"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

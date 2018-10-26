@@ -1,0 +1,52 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "colorCloud_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.8571428571428571,
+  "sample": 7,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "4832c802-5bc9-4a21-a6c2-b53c9b3b510c"
+            }
+          },
+          {
+            "frame": 0.14285714285714285,
+            "value": {
+              "__uuid__": "7a9635ae-ca46-4220-a3c5-8f9c8216ebb9"
+            }
+          },
+          {
+            "frame": 0.2857142857142857,
+            "value": {
+              "__uuid__": "862c880f-28c9-4318-b6b8-7dc103a189ec"
+            }
+          },
+          {
+            "frame": 0.42857142857142855,
+            "value": {
+              "__uuid__": "2102844f-a6fb-4200-9f7e-685ecc1da18b"
+            }
+          },
+          {
+            "frame": 0.5714285714285714,
+            "value": {
+              "__uuid__": "10303b6e-d0a6-4341-a768-beb1e206a9c5"
+            }
+          },
+          {
+            "frame": 0.7142857142857143
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

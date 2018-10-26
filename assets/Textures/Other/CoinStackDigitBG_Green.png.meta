@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "c63563c0-a746-42fa-bbd0-d24fb31a9a7a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "CoinStackDigitBG_Green": {
+      "ver": "1.0.3",
+      "uuid": "55ed0990-1399-478d-abf7-898f4d31f8dd",
+      "rawTextureUuid": "c63563c0-a746-42fa-bbd0-d24fb31a9a7a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 75,
+      "height": 18,
+      "rawWidth": 75,
+      "rawHeight": 18,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

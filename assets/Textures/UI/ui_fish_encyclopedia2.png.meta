@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "cb317161-e0d9-4a47-a4c7-cec7af6fc510",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "ui_fish_encyclopedia2": {
+      "ver": "1.0.3",
+      "uuid": "f4df7a04-4370-4c91-83eb-221c0aa5648d",
+      "rawTextureUuid": "cb317161-e0d9-4a47-a4c7-cec7af6fc510",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 547,
+      "height": 136,
+      "rawWidth": 547,
+      "rawHeight": 136,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

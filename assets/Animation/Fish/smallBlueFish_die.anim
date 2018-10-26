@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "smallBlueFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 6,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "785aea90-cf64-46de-bd36-0a302aa54b06"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "f33020e4-4590-49da-a06e-c78d27acb753"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "e30407ff-e13a-45e2-8210-3d80b0c8ac3d"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "741043ce-8c75-4480-a0e0-3a11253cce02"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "e9d9b537-dace-4c13-82fc-1593eb6cff07"
+            }
+          },
+          {
+            "frame": 0.8333333333333334,
+            "value": {
+              "__uuid__": "df4edf9e-15fe-45a7-9a0c-57fa7014ac4f"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

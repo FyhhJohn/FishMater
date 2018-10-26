@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "celestialFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 4,
+  "speed": 2,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "21db1d52-562b-441c-ba1b-10e40f2c7249"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "41122896-3691-4b0b-934d-b760ae4662e6"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "7a96b6b6-1344-4c27-a23b-95e28eb1a5c4"
+            }
+          },
+          {
+            "frame": 0.75,
+            "value": {
+              "__uuid__": "ef19549a-4d19-42fa-8c30-8b6b329ae035"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

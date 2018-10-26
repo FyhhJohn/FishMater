@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "1133f287-037b-4586-ac4f-0e2af9653743",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "pileGold_Roll_6": {
+      "ver": "1.0.3",
+      "uuid": "8cf210dc-888f-4115-81aa-fdf636c5d9fa",
+      "rawTextureUuid": "1133f287-037b-4586-ac4f-0e2af9653743",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -1.5,
+      "trimX": 0,
+      "trimY": 5,
+      "width": 32,
+      "height": 25,
+      "rawWidth": 32,
+      "rawHeight": 32,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

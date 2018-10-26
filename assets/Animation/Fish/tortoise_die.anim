@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "tortoise_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 7,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "01439cc9-7fa8-453c-af13-caf65558b43a"
+            }
+          },
+          {
+            "frame": 0.14285714285714285,
+            "value": {
+              "__uuid__": "9bc6be6d-3259-48be-a7b6-5eaa7bcb754e"
+            }
+          },
+          {
+            "frame": 0.2857142857142857,
+            "value": {
+              "__uuid__": "5488bad2-e7a0-44e6-a685-85bbb27e9ef2"
+            }
+          },
+          {
+            "frame": 0.42857142857142855,
+            "value": {
+              "__uuid__": "796aa60b-f71c-4770-8930-83a0f0ad9706"
+            }
+          },
+          {
+            "frame": 0.5714285714285714,
+            "value": {
+              "__uuid__": "e20de062-90fc-4596-afeb-bf12557c5f84"
+            }
+          },
+          {
+            "frame": 0.7142857142857143,
+            "value": {
+              "__uuid__": "97b03b0f-23e5-475a-b516-d3dcc33ede9e"
+            }
+          },
+          {
+            "frame": 0.8571428571428571,
+            "value": {
+              "__uuid__": "46b96530-141d-4387-a430-984a9634df1d"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

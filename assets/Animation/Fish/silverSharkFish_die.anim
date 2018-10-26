@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "silverSharkFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 6,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "54e8509f-4fee-4603-8a06-15ad0d7a1546"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "ef3f7c9a-aab4-4569-83eb-ba07d36c04c2"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "e5b3baeb-ed5f-4fd0-aab1-d263125c05ce"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "2ba38044-7be0-4452-b487-e77dd6f4e386"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "064aa477-139b-4164-8224-520ab9e42d97"
+            }
+          },
+          {
+            "frame": 0.8333333333333334,
+            "value": {
+              "__uuid__": "e072d4ee-2773-4261-87f3-eb2d7a3510a6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

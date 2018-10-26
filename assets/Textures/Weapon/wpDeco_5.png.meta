@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "4569dd65-29c3-4fa4-90ef-6102683c9832",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "wpDeco_5": {
+      "ver": "1.0.3",
+      "uuid": "d66b1129-1341-4123-9293-88684e3af8c5",
+      "rawTextureUuid": "4569dd65-29c3-4fa4-90ef-6102683c9832",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 52,
+      "height": 52,
+      "rawWidth": 52,
+      "rawHeight": 52,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

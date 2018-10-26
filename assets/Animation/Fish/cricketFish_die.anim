@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "cricketFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 5,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "7f15e7c5-31b7-4201-8808-bba7b156f7e9"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "2356d18b-1dd7-4d11-9d19-8cb2fa2634ad"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "e78828c0-7ba9-4c69-a1c4-ae76e9813c21"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "4cee3e65-8872-444d-9e7e-1fb5df251350"
+            }
+          },
+          {
+            "frame": 0.8,
+            "value": {
+              "__uuid__": "55fdfd9b-89e1-4c2b-9c0f-7de1937006e8"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

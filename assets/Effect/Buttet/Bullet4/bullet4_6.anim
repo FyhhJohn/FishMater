@@ -1,0 +1,31 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "bullet4_6",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 2,
+  "speed": 3,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "b0e054e8-8a1a-43dc-bddd-7deb5e5fd94c"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "c4407c52-c377-41b8-a0a6-1e58bd0d2e91"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

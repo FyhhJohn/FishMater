@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "clownFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 6,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "e4969bae-b97e-4378-b955-a84a8f4f0321"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "51830c83-f5df-47ce-92d2-614bc6b6cca4"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "93b7ef5e-8712-4466-8d4b-033571c231ac"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "e379969c-8e08-4cf4-bfa5-7b8e9f92e5cd"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "81a9d6b5-8010-4aab-8d3f-6b5fb47de8d1"
+            }
+          },
+          {
+            "frame": 0.8333333333333334,
+            "value": {
+              "__uuid__": "b789f442-7334-4f14-af47-4dea92a051eb"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "lanternFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 4,
+  "speed": 2,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "0275d070-f1fc-43c5-a99f-774567b6013d"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "1002be03-0c06-4c3d-b7f1-49e6962b0e6d"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "4ee410be-6404-4e8e-9b34-6779b4733263"
+            }
+          },
+          {
+            "frame": 0.75,
+            "value": {
+              "__uuid__": "81a112bb-466c-4217-b835-31ed602568ca"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

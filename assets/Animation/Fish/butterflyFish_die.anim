@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "butterflyFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 4,
+  "speed": 2,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "f926345a-53e3-47d3-88eb-bff2382defcc"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "43477613-dcc2-4283-aa30-e4c17cf2ce9c"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "8a847337-4d06-467b-af55-c79107bae3b3"
+            }
+          },
+          {
+            "frame": 0.75,
+            "value": {
+              "__uuid__": "98f7e6ed-294d-4ca8-96d7-b8d18e19569d"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

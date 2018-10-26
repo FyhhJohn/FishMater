@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "goldSharkFish_die",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 4,
+  "speed": 2,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "6835633f-653a-42cd-8061-dead15650fb5"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "2e1d2a06-bc05-4fe9-86ae-ba6f9ca56a06"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "2c1464f6-011f-4a40-b9a7-960d5dbd79b9"
+            }
+          },
+          {
+            "frame": 0.75,
+            "value": {
+              "__uuid__": "a1e78225-d7e8-41d6-9c6a-e4afbdda5523"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

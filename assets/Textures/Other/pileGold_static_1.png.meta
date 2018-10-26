@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "27ba49ab-9cc3-476b-b18f-d74ac09d3290",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "pileGold_static_1": {
+      "ver": "1.0.3",
+      "uuid": "b9e29e7d-a499-4350-9256-5cce9bf92192",
+      "rawTextureUuid": "27ba49ab-9cc3-476b-b18f-d74ac09d3290",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 38,
+      "height": 210,
+      "rawWidth": 38,
+      "rawHeight": 210,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

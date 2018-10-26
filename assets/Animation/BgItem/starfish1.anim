@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "starfish",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 7,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "a5b13f54-f37c-4ce1-a95c-e5c91f3bbfd2"
+            }
+          },
+          {
+            "frame": 0.14285714285714285,
+            "value": {
+              "__uuid__": "1ff71682-5c9c-4644-b661-f8f583908ac8"
+            }
+          },
+          {
+            "frame": 0.2857142857142857,
+            "value": {
+              "__uuid__": "10c658a1-9be4-401c-9872-786f622513bb"
+            }
+          },
+          {
+            "frame": 0.42857142857142855,
+            "value": {
+              "__uuid__": "f331864b-6a79-4dff-8581-988b4240ab98"
+            }
+          },
+          {
+            "frame": 0.5714285714285714,
+            "value": {
+              "__uuid__": "d0111143-e48d-4973-9440-be1c4d4e1978"
+            }
+          },
+          {
+            "frame": 0.7142857142857143,
+            "value": {
+              "__uuid__": "ef392a3b-8d6c-4d53-9350-b5e9001c0039"
+            }
+          },
+          {
+            "frame": 0.8571428571428571,
+            "value": {
+              "__uuid__": "92e7a3f8-ee27-4625-8522-57aeb654479e"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "d917a019-3b29-473d-92b9-8f202c4fc7dd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "GunLiziTri_0": {
+      "ver": "1.0.3",
+      "uuid": "a15b584d-3e3f-459c-9f5e-55cf374d20d4",
+      "rawTextureUuid": "d917a019-3b29-473d-92b9-8f202c4fc7dd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 101,
+      "height": 102,
+      "rawWidth": 101,
+      "rawHeight": 102,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
