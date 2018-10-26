@@ -13,7 +13,7 @@ window.Utils = {
         speedOrigin = Math.abs(speedOrigin);
         if( moveAngle == 0 ){
             return speedOrigin;
-        }
+        } 
 
         if( moveAngle == 90 ){
             return 0;
