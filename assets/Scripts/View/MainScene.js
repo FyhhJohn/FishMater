@@ -6,4 +6,8 @@ cc.Class({
     properties: {
 
     },
+
+    onLoad: function(){
+        GameManager.MainScene = this;
+    },
 });

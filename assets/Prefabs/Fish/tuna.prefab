@@ -125,7 +125,7 @@
     "_enabled": true,
     "bloodValue": 1000,
     "speed": 80,
-    "num": 6,
+    "num": 4,
     "angSpeed": 0,
     "moveType": 0,
     "delayTime": 2.5,

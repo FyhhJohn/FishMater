@@ -1,6 +1,6 @@
 
 
-var GameControler = cc.Class({
+cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -15,6 +15,7 @@ var GameControler = cc.Class({
     },
 
     onLoad () {
+        GameManager.GameControler = this;
         this.goldColor = this.goldLabel.node.color;
         this.goldLabel.string = "$"+this.goldValue;
         cc.director.getCollisionManager().enabled = true;
@@ -76,5 +77,3 @@ var GameControler = cc.Class({
         this.goldLabel.string = "$"+this.goldValue; 
     },
 });
-
-window.GameControler = GameControler;

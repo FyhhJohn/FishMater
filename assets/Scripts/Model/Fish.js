@@ -4,6 +4,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        gold: 0,
         bloodValue: 0,
         speed: 0,
         num: 0,
@@ -11,6 +12,10 @@ cc.Class({
         moveType: 0,
         delayTime: 0,
         diePrefab: cc.Prefab,
+    },
+
+    onLoad: function(){
+        this.gold = this.bloodValue;
     },
 
     update: function(dt){
@@ -43,7 +48,7 @@ cc.Class({
 
             this.node.destroy();
 
-            GameControler
+            GameManager.GameControler.updateGoldValue(this.gold);
         }
     },
 });
