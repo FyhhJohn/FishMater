@@ -16,20 +16,21 @@ cc.Class({
     },
 
     addFish: function(){
-        var max = this.genPos.length;
-        var genIndex = Math.floor(Math.random()*max);
-        max = this.fishPrefabs.length;
+        var max = this.fishPrefabs.length;
         var fishIndex = Math.floor(Math.random()*max);
 
         var data = this.fishPrefabs[fishIndex].data.getComponent("Fish");
-
-        var moveType = Utils.random(0,1) ;   //0:直线  1:曲线
-        var moveAngle = Utils.random(4,8);   //旋转的角度
         var num = Utils.random(data.num/2, data.num) ;
 
         var self = this;
         this.node.runAction( cc.repeat( 
             cc.sequence( cc.callFunc( function(){
+                var posmax = self.genPos.length;
+                var genIndex = Math.floor(Math.random()*posmax);
+
+                var moveType = Utils.random(0,1) ;   //0:直线  1:曲线
+                var moveAngle = Utils.random(4,8);   //旋转的角度
+
                 var fish = cc.instantiate(self.fishPrefabs[fishIndex]);
                 fish.parent = self.fishPanel;
                 fish.position = self.genPos[genIndex].position;

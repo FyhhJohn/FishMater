@@ -22,7 +22,6 @@ cc.Class({
             self.node.destroy();
         }else if( other.node.group == "fish" ){
             var damageValue =  self.node.getComponent("Bullet").damageValue;
-            cc.log("damageValue = "+damageValue);
            
             var web = cc.instantiate(this.webPrefab);
             web.getComponent("Web").damageValue = damageValue;

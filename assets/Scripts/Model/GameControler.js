@@ -76,4 +76,20 @@ cc.Class({
         this.goldValue += gold;
         this.goldLabel.string = "$"+this.goldValue; 
     },
+
+    onButtonP: function(){
+        this.GunList[this._gunIndex].active = false;
+        this._gunIndex++;
+        this._gunIndex = (this._gunIndex % this.GunList.length);
+        this.GunList[this._gunIndex].active = true;
+        cc.log("GunIndex = "+this._gunIndex);
+    },
+
+    onButtonM: function(){
+        this.GunList[this._gunIndex].active = false;
+        this._gunIndex--;
+        this._gunIndex = (this._gunIndex < 0) ? this.GunList.length-1:this._gunIndex;
+        this.GunList[this._gunIndex].active = true;
+        cc.log("GunIndex = "+this._gunIndex);
+    },
 });

@@ -36,9 +36,7 @@ cc.Class({
     //受到攻击
     attacked: function(damage){
         this.bloodValue -= damage;
-        cc.log("bloodValue = "+this.bloodValue);
         if( this.bloodValue <= 0 ){
-            cc.log("bloodValue2 = "+this.bloodValue);
 
             var die = cc.instantiate(this.diePrefab);
             die.addComponent("ef_AutoClear");
