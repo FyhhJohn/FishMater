@@ -43,6 +43,8 @@ cc.Class({
             die.parent = this.node.parent;
             die.position = this.node.position;
             die.rotation = this.node.rotation;
+            die.scaleX = this.node.scaleX;
+            die.scaleY = this.node.scaleY;
 
             this.node.destroy();
 

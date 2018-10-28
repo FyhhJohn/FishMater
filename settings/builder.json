@@ -1,0 +1,33 @@
+{
+  "appKey": "",
+  "appSecret": "",
+  "encryptJs": true,
+  "excludeScenes": [],
+  "includeAnySDK": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": true,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.FishMater",
+  "privateKey": "",
+  "renderMode": "0",
+  "startScene": "366efd55-46a3-477b-9027-9015f0fde9ec",
+  "title": "FishMater",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "appid": "wx5e49bbc4119de2ab",
+    "orientation": "landscape"
+  },
+  "xxteaKey": "476bf54c-b564-44",
+  "zipCompressJs": true
+}

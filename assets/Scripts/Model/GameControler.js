@@ -24,6 +24,8 @@ cc.Class({
         // cc.director.enabledDrawBoundingBox = true;
 
         this.GenPanel.on(cc.Node.EventType.TOUCH_START,this.addBullet,this);
+
+        SoundManager.playMusic("resources/Sound/backgroundMusic_01.wav");
     },
 
     addBullet: function(event){
@@ -41,6 +43,8 @@ cc.Class({
             ,1));
             return;
         }
+
+        SoundManager.playMusic("resources/Sound/FX_发炮_01.wav");
 
         this.updateGoldValue(-cost);
 
