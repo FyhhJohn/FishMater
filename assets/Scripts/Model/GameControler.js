@@ -25,7 +25,7 @@ cc.Class({
 
         this.GenPanel.on(cc.Node.EventType.TOUCH_START,this.addBullet,this);
 
-        SoundManager.playMusic("resources/Sound/backgroundMusic_01.wav");
+        SoundManager.playMusic("背景乐_01");
     },
 
     addBullet: function(event){
@@ -44,7 +44,7 @@ cc.Class({
             return;
         }
 
-        SoundManager.playMusic("resources/Sound/FX_发炮_01.wav");
+        SoundManager.playEffect("FX_发炮_01");
 
         this.updateGoldValue(-cost);
 
@@ -87,6 +87,8 @@ cc.Class({
         this._gunIndex = (this._gunIndex % this.GunList.length);
         this.GunList[this._gunIndex].active = true;
         cc.log("GunIndex = "+this._gunIndex);
+
+        SoundManager.playEffect("FX_换炮_01");
     },
 
     onButtonM: function(){
@@ -95,5 +97,6 @@ cc.Class({
         this._gunIndex = (this._gunIndex < 0) ? this.GunList.length-1:this._gunIndex;
         this.GunList[this._gunIndex].active = true;
         cc.log("GunIndex = "+this._gunIndex);
+        SoundManager.playEffect("FX_换炮_01");
     },
 });
