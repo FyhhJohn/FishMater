@@ -123,6 +123,7 @@
       "__id__": 1
     },
     "_enabled": true,
+    "gold": 0,
     "bloodValue": 50,
     "speed": 150,
     "num": 7,

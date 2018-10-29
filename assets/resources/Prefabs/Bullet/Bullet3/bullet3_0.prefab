@@ -143,10 +143,10 @@
       "__id__": 1
     },
     "_enabled": true,
-    "damageValue": 600,
+    "damageValue": 440,
     "moveSpeed": 400,
     "webPrefab": {
-      "__uuid__": "12a9d210-d8b2-40ac-bed7-e39929764f3f"
+      "__uuid__": "de220c7c-3c93-4917-9d2d-9b5f3fa435aa"
     }
   },
   {

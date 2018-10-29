@@ -48,7 +48,7 @@ cc.Class({
 
             this.node.destroy();
 
-            GameManager.GameControler.updateGoldValue(this.gold);
+            GameManager.GameControler.updateGoldValue(this.gold,this.node.position);
         }
     },
 });

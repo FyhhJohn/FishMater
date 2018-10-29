@@ -12,7 +12,7 @@ cc.Class({
     onLoad: function(){
         this.schedule( function(){
             this.addFish();
-        },1.0);
+        },0.5);
     },
 
     addFish: function(){

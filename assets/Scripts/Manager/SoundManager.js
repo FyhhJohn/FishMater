@@ -30,7 +30,7 @@ var SoundManager = cc.Class({
 
     playEffect: function(name){
         this._effectId = cc.audioEngine.playEffect(cc.url.raw("resources/Sound/" + name + ".wav"), false);
-        this.setVolume(this._effectId,0.5);
+        this.setVolume(this._effectId,0.4);
     },
 
     stopEffect: function(){
