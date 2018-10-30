@@ -8,7 +8,6 @@ cc.Class({
     },
 
     start () {
-
     },
 
     onNewGame: function(){

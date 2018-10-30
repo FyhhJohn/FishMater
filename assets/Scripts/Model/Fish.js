@@ -5,6 +5,7 @@ cc.Class({
 
     properties: {
         gold: 0,
+        maxbloodValue: 0,
         bloodValue: 0,
         speed: 0,
         num: 0,
@@ -12,10 +13,12 @@ cc.Class({
         moveType: 0,
         delayTime: 0,
         diePrefab: cc.Prefab,
+        _bloodProgressBar: null,
     },
-
+    
     onLoad: function(){
-        this.gold = this.bloodValue;
+        this.maxbloodValue = this.bloodValue;
+        this.gold = this.bloodValue * 0.8;
     },
 
     update: function(dt){
@@ -36,8 +39,8 @@ cc.Class({
     //受到攻击
     attacked: function(damage){
         this.bloodValue -= damage;
-        if( this.bloodValue <= 0 ){
 
+        if( this.bloodValue <= 0 ){
             var die = cc.instantiate(this.diePrefab);
             die.addComponent("ef_AutoClear");
             die.parent = this.node.parent;
@@ -49,6 +52,40 @@ cc.Class({
             this.node.destroy();
 
             GameManager.GameControler.updateGoldValue(this.gold,this.node.position);
+        // }else{
+        //     if( !this._bloodProgressBar ){
+        //         this.addBlood();
+        //     }else{
+        //         this.updateBlood();   
+        //     }
         }
+    },
+
+    addBlood: function(){
+        var self = this;
+        cc.loader.loadRes("Prefabs/ProgressBar",function(err,prefab){
+            if( err ){
+                cc.error(err.message || err );
+                return;
+            }
+
+            self._bloodProgressBar = cc.instantiate( prefab );
+            self.node.addChild( self._bloodProgressBar );
+            self._bloodProgressBar.position = cc.v2(0, self.node.height);
+
+            self.updateBlood();
+        });
+    },
+
+    updateBlood: function(){
+
+        this._bloodProgressBar.stopAllActions();
+        var progressBar = this._bloodProgressBar.getComponent(cc.ProgressBar);
+        progressBar.progress = this.bloodValue / this.maxbloodValue;
+        this._bloodProgressBar.active = true;
+        var self = this;
+        this._bloodProgressBar.runAction(cc.sequence(cc.delayTime(1),cc.fadeOut(0.5),cc.callFunc(function(){
+            self._bloodProgressBar.active = false;
+        })));
     },
 });

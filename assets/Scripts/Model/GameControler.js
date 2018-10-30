@@ -118,7 +118,7 @@ cc.Class({
         var count = this.getGoldCount(goldValue);
         var goldIndex = 0;
         var effectName = "";
-        if( goldValue <= 300 ){
+        if( goldValue < 1000 ){
             goldIndex = 0;
             effectName = "FX_银币_01";
         // }else if( goldValue <= 600 ){
@@ -172,10 +172,10 @@ cc.Class({
 
     getGoldCount: function(gold){
         var count = 0;
-        if( gold > 300 ){
-            count = Math.round( gold / 40 );
+        if( gold >= 1000 ){
+            count = Math.ceil( gold / 500 );
         }else{
-            count = Math.round( gold / 60 );
+            count = Math.ceil( gold / 100 );
         }
         return count;
     },
@@ -187,7 +187,13 @@ cc.Class({
             this._goldTime1 = 99;
             this.updateGoldValue(100);
         }
-        this.time1Label.string = this._goldTime1;
+
+        var str = this._goldTime1.toString();
+        if( str.length > 1 ){
+            this.time1Label.string = str[0]+" "+str[1];
+        }else{
+            this.time1Label.string = 0+" "+str[0];
+        }
 
         if( this._goldTime2 < 0 ){
             this._goldTime2 = 240;
