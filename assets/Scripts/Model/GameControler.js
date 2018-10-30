@@ -219,7 +219,7 @@ cc.Class({
     onButtonM: function(){
         var Gun = this.GunList[this._gunIndex].getComponent("Gun");
         var bulletList = Gun.bulletPrefab;
-        if( this._bulletIndex > 1 ){
+        if( this._bulletIndex >= 1 ){
             this._bulletIndex--;
         }else{
             this.GunList[this._gunIndex].active = false;
