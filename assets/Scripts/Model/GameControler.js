@@ -229,7 +229,7 @@ cc.Class({
             this.GunList[this._gunIndex].active = true;
             this.GunList[this._gunIndex].rotation = rotation;
             cc.log("GunIndex = "+this._gunIndex);
-            this._bulletIndex = 0;
+            this._bulletIndex = bulletList.length-1;
         }
         this.updateCost();
 
