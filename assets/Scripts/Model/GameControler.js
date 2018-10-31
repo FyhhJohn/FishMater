@@ -26,7 +26,7 @@ cc.Class({
     },
 
     ctor: function(){
-        this._goldTime1 = 10;
+        this._goldTime1 = 99;
         this._goldTime2 = 20;
         this._gunIndex = 0;
         this._bulletIndex = 0;
@@ -34,13 +34,12 @@ cc.Class({
 
     onLoad () {
         GameManager.GameControler = this;
+        this.goldValue = UserDefault.getInt("gold");
         this.goldColor = this.goldLabel.node.color;
         this.goldLabel.string = "$"+this.goldValue;
+
         cc.director.getCollisionManager().enabled = true;
         this.GunList[this._gunIndex].active = true;
-        this.time1Label.string = this._goldTime1;
-        this.time2Label.string = this._goldTime2+"s";
-
 
         this.updateCost();
         // cc.director.getCollisionManager().enabledDebugDraw = true;
@@ -181,25 +180,25 @@ cc.Class({
     },
 
     updateTime: function(){
-        this._goldTime1--;
-        this._goldTime2--;
         if( this._goldTime1 < 0 ){
             this._goldTime1 = 99;
             this.updateGoldValue(100);
         }
-
+        
         var str = this._goldTime1.toString();
         if( str.length > 1 ){
             this.time1Label.string = str[0]+" "+str[1];
         }else{
             this.time1Label.string = 0+" "+str[0];
         }
-
-        if( this._goldTime2 < 0 ){
-            this._goldTime2 = 240;
-            this.updateGoldValue(1000);
-        }
-        this.time2Label.string = this._goldTime2+"s";
+        this._goldTime1--;
+        
+        // if( this._goldTime2 < 0 ){
+        //     this._goldTime2 = 240;
+        //     this.updateGoldValue(1000);
+        // }
+        // this.time2Label.string = this._goldTime2+"s";
+        this._goldTime2--;
     },
 
     onButtonP: function(){

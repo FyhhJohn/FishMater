@@ -4,6 +4,9 @@ var SoundManager = cc.Class({
     properties: {
         _musicId: null,
         _effectId: null,
+
+        _isEffectOn: true,
+        _isMusicOn: true,
     },
 
     ctor: function(){
@@ -11,6 +14,9 @@ var SoundManager = cc.Class({
     },
 
     playMusic: function(name){
+        if( !this._isMusicOn ){
+            return;
+        }
         this.stopMusic();
         this._musicId = cc.audioEngine.playMusic(cc.url.raw("resources/Sound/" + name + ".wav"), true);
     },
@@ -25,10 +31,15 @@ var SoundManager = cc.Class({
     },
 
     resumeMusic: function(){
-        cc.audioEngine.resumeMusic();
+        if( this._isMusicOn ){
+            cc.audioEngine.resumeMusic();
+        }
     },
 
     playEffect: function(name){
+        if( !this._isEffectOn ){
+            return;
+        }
         this._effectId = cc.audioEngine.playEffect(cc.url.raw("resources/Sound/" + name + ".wav"), false);
         this.setVolume(this._effectId,0.4);
     },
@@ -54,6 +65,22 @@ var SoundManager = cc.Class({
 
     setVolume: function(audioID, volume) {
         cc.audioEngine.setVolume(audioID, volume);
+    },
+
+    setEffectOn: function(isOn){
+        this._isEffectOn = isOn;
+        if( !this._isEffectOn ){
+            this.stopEffect();
+        }
+    },
+
+    setMusicOn: function(isOn){
+        this._isMusicOn = isOn;
+        if( !this._isMusicOn ){
+            this.pauseMusic();
+        }else{
+            this.resumeMusic();
+        }
     },
 });
 
