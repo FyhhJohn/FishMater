@@ -13,12 +13,15 @@ cc.Class({
         moveType: 0,
         delayTime: 0,
         diePrefab: cc.Prefab,
+        fishIndex: 0,
+
         _bloodProgressBar: null,
     },
     
     onLoad: function(){
         this.maxbloodValue = this.bloodValue;
         this.gold = this.bloodValue * 0.8;
+        cc.log("鱼名："+ this.node.name + "血量："+this.maxbloodValue);
     },
 
     update: function(dt){
@@ -32,14 +35,15 @@ cc.Class({
 
     onCollisionEnter: function (other, self) {
         if( other.node.group == "border" ){
-            self.node.destroy();
+            // self.node.destroy();
+            GameManager.FishFactory.node.getComponent("FishFactory").putFish(self.node,self.node.getComponent("Fish").fishIndex);
         }
     },
 
     //受到攻击
     attacked: function(damage){
         this.bloodValue -= damage;
-
+        cc.log("攻击 鱼("+this.node.name+") 血量："+this.bloodValue);
         if( this.bloodValue <= 0 ){
             var die = cc.instantiate(this.diePrefab);
             die.addComponent("ef_AutoClear");
@@ -49,7 +53,7 @@ cc.Class({
             die.scaleX = this.node.scaleX;
             die.scaleY = this.node.scaleY;
 
-            this.node.destroy();
+            GameManager.FishFactory.node.getComponent("FishFactory").putFish(this.node,this.fishIndex);
 
             GameManager.GameControler.updateGoldValue(this.gold,this.node.position);
         // }else{
