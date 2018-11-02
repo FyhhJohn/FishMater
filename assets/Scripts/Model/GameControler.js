@@ -1,4 +1,4 @@
-
+var DataManager = require("DataManager");
 
 cc.Class({
     extends: cc.Component,
@@ -10,7 +10,11 @@ cc.Class({
 
         goldPanel: cc.Node,
         goldLabel: cc.Label,
+        diamondLabel: cc.Label,
+
         goldValue: 100000,
+        diamondValue: 0,
+        hasGunIndex: 0,
         
         costLabel: cc.Label,
         goldPrefabs: [cc.Prefab],
@@ -30,13 +34,21 @@ cc.Class({
         this._goldTime2 = 20;
         this._gunIndex = 0;
         this._bulletIndex = 0;
+        this._shopUI = null;
     },
 
     onLoad () {
         GameManager.GameControler = this;
-        this.goldValue = UserDefault.getInt("gold");
+        GameManager.DataManager = new DataManager();
+        
+        var userInfo = GameManager.DataManager.getUserInfo();
+        this.goldValue = userInfo.gold;
+        this.diamondValue = userInfo.diamond;
+        this.hasGunIndex = userInfo.gunIndex;
+
         this.goldColor = this.goldLabel.node.color;
         this.goldLabel.string = "$"+this.goldValue;
+        this.diamondLabel.string = ""+this.diamondValue;
 
         cc.director.getCollisionManager().enabled = true;
         this.GunList[this._gunIndex].active = true;

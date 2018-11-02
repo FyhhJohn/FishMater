@@ -21,7 +21,6 @@ cc.Class({
     onLoad: function(){
         this.maxbloodValue = this.bloodValue;
         this.gold = this.bloodValue * 0.8;
-        cc.log("鱼名："+ this.node.name + "血量："+this.maxbloodValue);
     },
 
     update: function(dt){

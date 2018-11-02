@@ -11,7 +11,6 @@ cc.Class({
     },
 
     onNewGame: function(){
-        UserDefault.setInt("gold",100000);
         cc.director.loadScene("MainScene");
     },
 

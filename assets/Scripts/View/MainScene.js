@@ -5,6 +5,7 @@ cc.Class({
 
     properties: {
         _settingUI: null,
+        _shopUI: null,
     },
 
     onLoad: function(){
@@ -25,6 +26,24 @@ cc.Class({
                 self._settingUI.parent = self.node;
 
                 self._settingUI.getComponent("SettingScene").show();
+            });
+        }
+    },
+
+    onShopClicked: function(){
+        cc.log("onShopClicked");
+        var self = this;
+        if( this._shopUI  ){
+            this._shopUI.getComponent("ShopScene").show();
+        }else{
+            cc.loader.loadRes("Prefabs/Shop/ShopUI",function(err,prefab){
+                if( err ){
+                    return;
+                }
+
+                self._shopUI = cc.instantiate(prefab);
+                self._shopUI.parent = self.node;
+                self._shopUI.getComponent("ShopScene").show();
             });
         }
     },
