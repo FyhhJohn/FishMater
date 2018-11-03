@@ -1,0 +1,16 @@
+{
+	"diamond":[
+		{"name":"钻石1","num":"100", "cost":"95",  "costType":"1","isSale":"true"},
+		{"name":"钻石2","num":"200", "cost":"182", "costType":"1","isSale":"true"},
+		{"name":"钻石3","num":"500", "cost":"330", "costType":"1","isSale":"true"},
+		{"name":"钻石4","num":"1000","cost":"500", "costType":"1","isSale":"true"},
+		{"name":"钻石5","num":"2000","cost":"600", "costType":"1","isSale":"true"}
+	],
+	"gold":[
+		{"name":"金币1","num":"100", "cost":"100", "costType":"2","isSale":"false"},
+		{"name":"金币2","num":"200", "cost":"200", "costType":"2","isSale":"false"},
+		{"name":"金币3","num":"500", "cost":"500", "costType":"2","isSale":"false"},
+		{"name":"金币4","num":"1000","cost":"1000","costType":"2","isSale":"false"},
+		{"name":"金币5","num":"2000","cost":"2000","costType":"2","isSale":"false"}
+	]
+}
