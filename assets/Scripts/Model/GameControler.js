@@ -126,20 +126,19 @@ cc.Class({
     },
 
     updateGoldValue: function(goldValue,pos){
+        var self = this;
+        GameManager.DataManager.userInfo.gold = self.goldValue + goldValue;
+
         var count = this.getGoldCount(goldValue);
         var goldIndex = 0;
         var effectName = "";
         if( goldValue < 1000 ){
             goldIndex = 0;
             effectName = "FX_银币_01";
-        // }else if( goldValue <= 600 ){
-        //     goldIndex = 1;
         }else{
             goldIndex = 2;
             effectName = "FX_金币";
         }
-
-        var self = this;
 
         if( pos ){
             var delayTime = 0;
@@ -179,6 +178,7 @@ cc.Class({
             self.goldValue += goldValue;
             self.goldLabel.string = "$"+this.goldValue; 
         }
+
     },
 
     getGoldCount: function(gold){
@@ -211,6 +211,14 @@ cc.Class({
         // }
         // this.time2Label.string = this._goldTime2+"s";
         this._goldTime2--;
+
+        this.saveInfo();
+    },
+
+    saveInfo: function(){
+        UserDefault.setInt("gold",GameManager.DataManager.userInfo.gold);
+        UserDefault.setInt("diamond",GameManager.DataManager.userInfo.diamond);
+        UserDefault.setInt("gunIndex",GameManager.DataManager.userInfo.gunIndex);
     },
 
     onButtonP: function(){

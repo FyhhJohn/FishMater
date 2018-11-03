@@ -4,9 +4,13 @@ cc.Class({
 
     properties: {
         bg: cc.Node,
+        effectToggle: cc.Toggle,
+        musicToggle: cc.Toggle,
     },
 
     onLoad: function(){
+        this.effectToggle.isChecked = SoundManager.isEffectOn();
+        this.musicToggle.isChecked = SoundManager.isMusicOn();
     },
 
     onEffectBtnClicked: function(toggle, customEventData){

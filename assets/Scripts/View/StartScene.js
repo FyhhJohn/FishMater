@@ -10,6 +10,14 @@ cc.Class({
     start () {
     },
 
+    onLoad: function(){
+        var isEffectOn = UserDefault.getBool("effectOn");
+        var isMusicOn  = UserDefault.getBool("musicOn");
+
+        SoundManager.setEffectOn(isEffectOn);
+        SoundManager.setMusicOn(isMusicOn);
+    },
+
     onNewGame: function(){
         cc.director.loadScene("MainScene");
     },

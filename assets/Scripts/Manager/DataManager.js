@@ -28,8 +28,7 @@ cc.Class({
                 cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
             }
             
-            var result = JSON.stringify(res);
-            cc.log( 'result:' + result);
+            var result = JSON.parse(JSON.stringify(res));
             self.shopConfig = result;
         });
     },

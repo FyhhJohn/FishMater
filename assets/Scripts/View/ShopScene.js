@@ -11,9 +11,13 @@ cc.Class({
 
         lay1: cc.Node,
         lay2: cc.Node,
+
+        DiamondItem: [cc.Node],
+        GoldItem: [cc.Node],
     },
 
     onLoad: function(){
+        this.initItem();
         this.changeLay(1);
     },
 
@@ -44,8 +48,37 @@ cc.Class({
         this.changeLay(customData);
     },
 
+    initItem: function(){
+        var config =  GameManager.DataManager.getShopConfig();
+        var diamondConfig = config.diamond;
+        var goldConfig    = config.gold;
+
+        cc.log(diamondConfig);
+
+        for( var i=0; i<this.DiamondItem.length; i++ ){
+            let item = this.DiamondItem[i];
+            let name = item.getChildByName("name");
+            name.getComponent(cc.Label).string = diamondConfig[i].name;
+            let num = item.getChildByName("num");
+            num.getComponent(cc.Label).string = diamondConfig[i].num;
+            let cost = item.getChildByName("cost");
+            cost.getComponent(cc.Label).string = diamondConfig[i].cost;
+        }
+
+        cc.log(goldConfig);
+        for( var j=0; j<this.GoldItem.length; j++ ){
+            let item = this.GoldItem[j];
+            let name = item.getChildByName("name");
+            name.getComponent(cc.Label).string = goldConfig[j].name;
+            let num = item.getChildByName("num")
+            num.getComponent(cc.Label).string = goldConfig[j].num;
+            let cost = item.getChildByName("cost")
+            cost.getComponent(cc.Label).string = goldConfig[j].cost;
+        }
+    },
+
     changeLay: function(type){
-        if( customData == 1 ){
+        if( type == 1 ){
             this.lay1.active = true;
             this.lay2.active = false;
             this.btn1.interactable = false;
