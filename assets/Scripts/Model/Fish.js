@@ -42,7 +42,6 @@ cc.Class({
     //受到攻击
     attacked: function(damage){
         this.bloodValue -= damage;
-        cc.log("攻击 鱼("+this.node.name+") 血量："+this.bloodValue);
         if( this.bloodValue <= 0 ){
             var die = cc.instantiate(this.diePrefab);
             die.addComponent("ef_AutoClear");

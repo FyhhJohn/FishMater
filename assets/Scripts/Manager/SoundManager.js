@@ -33,6 +33,9 @@ var SoundManager = cc.Class({
     },
 
     resumeMusic: function(){
+        if( !this._musicName ){
+            return;
+        }
         if( this._musicName && this._musicId ){
             cc.audioEngine.resumeMusic();
         }else{
