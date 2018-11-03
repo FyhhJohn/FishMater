@@ -10,6 +10,8 @@ cc.Class({
 
     onLoad: function(){
         GameManager.MainScene = this;
+
+        SoundManager.playMusic("背景乐_01");
     },
 
     onSettingClicked: function(){

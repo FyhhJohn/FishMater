@@ -6,9 +6,12 @@ cc.Class({
         bg: cc.Node,
         effectToggle: cc.Toggle,
         musicToggle: cc.Toggle,
+
+        _isClose: false,
     },
 
     onLoad: function(){
+        this._isClose = false;
         this.effectToggle.isChecked = SoundManager.isEffectOn();
         this.musicToggle.isChecked = SoundManager.isMusicOn();
     },
@@ -24,6 +27,7 @@ cc.Class({
     },
 
     show: function(){
+        this._isClose = false;
         this.bg.stopAllActions();
         this.node.active = true;
         var desPos = cc.v2(0,360-this.bg.height/2-30);
@@ -34,6 +38,10 @@ cc.Class({
     },
 
     hide: function(){
+        if( this._isClose ){
+            return;
+        }
+        this._isClose = true;
         this.bg.stopAllActions();
         var desPos = cc.v2(0,360-this.bg.height/2-30);
         var desPos2 = cc.v2(0,360+this.bg.height/2);

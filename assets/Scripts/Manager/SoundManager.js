@@ -19,13 +19,13 @@ var SoundManager = cc.Class({
         if( !this._isMusicOn ){
             return;
         }
-        this.stopMusic();
         this._musicId = cc.audioEngine.playMusic(cc.url.raw("resources/Sound/" + name + ".wav"), true);
     },
     
     stopMusic: function(){
         cc.audioEngine.stopMusic();
         this._musicId = null;
+        this._musicName = null;
     },
 
     pauseMusic: function(){
@@ -33,12 +33,10 @@ var SoundManager = cc.Class({
     },
 
     resumeMusic: function(){
-        if( this._isMusicOn ){
-            if( this._musicId ){
-                cc.audioEngine.resumeMusic();
-            }else{
-                this.playMusic(this._musicName);
-            }
+        if( this._musicName && this._musicId ){
+            cc.audioEngine.resumeMusic();
+        }else{
+            this.playMusic(this._musicName);
         }
     },
 
@@ -74,21 +72,11 @@ var SoundManager = cc.Class({
     },
 
     setEffectOn: function(isOn){
-        if( !isOn ){
-            isOn = true;
-        }
         this._isEffectOn = isOn;
         UserDefault.setBool("effectOn",isOn);
-
-        if( !this._isEffectOn ){
-            this.stopEffect();
-        }
     },
 
     setMusicOn: function(isOn){
-        if( !isOn ){
-            isOn = true;
-        }
         this._isMusicOn = isOn;
         UserDefault.setBool("musicOn",isOn);
 

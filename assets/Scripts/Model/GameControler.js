@@ -63,7 +63,6 @@ cc.Class({
             this.updateTime();
         },1);
 
-        SoundManager.playMusic("背景乐_01");
     },
 
     updateCost: function(){
