@@ -69,7 +69,7 @@ cc.Class({
     showPop: function(data){
         var self = this;
         if( self._customPop ){
-            self._customPop.getComponent("CustomPos").show(data)
+            self._customPop.getComponent("CustomPop").show(data)
             cc.log("aaaaaaaaaaaaa");
         }else{
             cc.loader.loadRes("Prefabs/CustomPop",function(err,prefab){

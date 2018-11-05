@@ -29,6 +29,9 @@ cc.Class({
 
         _gunIndex: 0,
         _bulletIndex: 0,
+        _shoot: false,
+        _shootTime: 0,
+        _touchEvent: null,
     },
 
     ctor: function(){
@@ -54,16 +57,39 @@ cc.Class({
         cc.director.getCollisionManager().enabled = true;
         this.GunList[this._gunIndex].active = true;
 
+        this.updateButton();
         this.updateCost();
-        // cc.director.getCollisionManager().enabledDebugDraw = true;
-        // cc.director.enabledDrawBoundingBox = true;
 
-        this.GenPanel.on(cc.Node.EventType.TOUCH_START,this.addBullet,this);
+        this.GenPanel.on(cc.Node.EventType.TOUCH_START,this.onTouchStart,this);
+        this.GenPanel.on(cc.Node.EventType.TOUCH_MOVE,this.onTouchMove,this);
+        this.GenPanel.on(cc.Node.EventType.TOUCH_END,this.onTouchEnd,this);
+        this.GenPanel.on(cc.Node.EventType.TOUCH_CANCEL,this.onTouchEnd,this);
 
         this.schedule(function(){
             this.updateTime();
         },1);
 
+    },
+
+    onTouchStart: function(event){
+        this._shoot = true;
+        this._touchEvent = event;
+    },
+
+    onTouchMove: function(event){
+        this._touchEvent = event;
+    },
+
+    onTouchEnd: function(event){
+        this._shoot = false;
+    },
+
+    update: function(dt){
+        this._shootTime += dt;
+        if( this._shoot && this._shootTime > 0.2){
+            this.addBullet(this._touchEvent);
+            this._shootTime = 0;
+        }
     },
 
     updateCost: function(){
@@ -229,9 +255,7 @@ cc.Class({
             this._bulletIndex++;
         }
 
-        this.buttonP.interactable = ((this._bulletIndex >= bulletList.length-1) ? false:true); 
-        this.buttonM.interactable = ((this._bulletIndex <= 0) ? false:true); 
-
+        this.updateButton();
         this.updateCost();
         SoundManager.playEffect("FX_换炮_01");
     },
@@ -244,11 +268,17 @@ cc.Class({
             this._bulletIndex--;
         }
 
-        this.buttonP.interactable = ((this._bulletIndex >= bulletList.length-1) ? false:true); 
-        this.buttonM.interactable = ((this._bulletIndex <= 0) ? false:true); 
+        this.updateButton();
         this.updateCost();
 
         SoundManager.playEffect("FX_换炮_01");
+    },
+
+    updateButton: function(){
+        var Gun = this.GunList[this._gunIndex].getComponent("Gun");
+        var bulletList = Gun.bulletPrefab;
+        this.buttonP.interactable = ((this._bulletIndex >= bulletList.length-1) ? false:true); 
+        this.buttonM.interactable = ((this._bulletIndex <= 0) ? false:true); 
     },
 
     upgradeGun: function(){

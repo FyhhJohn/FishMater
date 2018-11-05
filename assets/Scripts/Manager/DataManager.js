@@ -5,6 +5,7 @@ cc.Class({
         userInfo:   null,
         shopConfig: null,
         fishConfig: null,
+        gunConfig:  null,
     },
 
     ctor(){
@@ -22,6 +23,7 @@ cc.Class({
 
         this.parseShopConfig();
         this.parseFishConfig();
+        this.parseGunConfig();
 
         Utils.randomUserName(10);
     },
@@ -55,6 +57,20 @@ cc.Class({
         });
     },
 
+    parseGunConfig: function(){
+        var self = this;
+        var url = "config/gunConfig";
+        cc.loader.loadRes( url, function( err, res){
+            if(err){
+                cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
+            }
+            
+            var result = JSON.parse(JSON.stringify(res));
+            self.gunConfig = result;
+            cc.log(result);
+        });
+    },
+
     getShopConfig: function(){
         return this.shopConfig;
     },
@@ -65,6 +81,10 @@ cc.Class({
 
     getFishConfig: function(fishName){
         return this.fishConfig[fishName];
+    },
+
+    getGunConfig: function(gunName){
+        return this.fishConfig[gunName];
     },
 });
 
