@@ -21,6 +21,9 @@ cc.Class({
         time1Label: cc.Label,
         time2Label: cc.Label,
 
+        buttonP: cc.Button,
+        buttonM: cc.Button,
+
         _goldTime1: 99,
         _goldTime2: 240,
 
@@ -218,41 +221,31 @@ cc.Class({
         UserDefault.setInt("gunIndex",GameManager.DataManager.userInfo.gunIndex);
     },
 
+    //升级炮威力
     onButtonP: function(){
         var Gun = this.GunList[this._gunIndex].getComponent("Gun");
         var bulletList = Gun.bulletPrefab;
         if( this._bulletIndex < bulletList.length-1 ){
             this._bulletIndex++;
-        }else{
-            this.GunList[this._gunIndex].active = false;
-            var rotation = this.GunList[this._gunIndex].rotation;
-            this._gunIndex++;
-            this._gunIndex = (this._gunIndex % this.GunList.length);
-            this.GunList[this._gunIndex].active = true;
-            this.GunList[this._gunIndex].rotation = rotation;
-            cc.log("GunIndex = "+this._gunIndex);
-            this._bulletIndex = 0;
         }
+
+        this.buttonP.interactable = ((this._bulletIndex >= bulletList.length-1) ? false:true); 
+        this.buttonM.interactable = ((this._bulletIndex <= 0) ? false:true); 
 
         this.updateCost();
         SoundManager.playEffect("FX_换炮_01");
     },
 
+    //降低炮威力
     onButtonM: function(){
         var Gun = this.GunList[this._gunIndex].getComponent("Gun");
         var bulletList = Gun.bulletPrefab;
         if( this._bulletIndex >= 1 ){
             this._bulletIndex--;
-        }else{
-            this.GunList[this._gunIndex].active = false;
-            var rotation = this.GunList[this._gunIndex].rotation;
-            this._gunIndex--;
-            this._gunIndex = (this._gunIndex < 0) ? this.GunList.length-1:this._gunIndex;
-            this.GunList[this._gunIndex].active = true;
-            this.GunList[this._gunIndex].rotation = rotation;
-            cc.log("GunIndex = "+this._gunIndex);
-            this._bulletIndex = bulletList.length-1;
         }
+
+        this.buttonP.interactable = ((this._bulletIndex >= bulletList.length-1) ? false:true); 
+        this.buttonM.interactable = ((this._bulletIndex <= 0) ? false:true); 
         this.updateCost();
 
         SoundManager.playEffect("FX_换炮_01");

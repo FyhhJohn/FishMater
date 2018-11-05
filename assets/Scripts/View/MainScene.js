@@ -10,6 +10,11 @@ cc.Class({
     },
 
     onLoad: function(){
+
+        this._settingUI = null;
+        this._shopUI = null;
+        this._customPop = null;
+
         GameManager.MainScene = this;
 
         var musicIndex =  Utils.random(1,4);
@@ -62,14 +67,16 @@ cc.Class({
     },
 
     showPop: function(data){
-        if( this._customPop ){
-            this._customPop.getComponent("CustomPos").show(data)
+        var self = this;
+        if( self._customPop ){
+            self._customPop.getComponent("CustomPos").show(data)
+            cc.log("aaaaaaaaaaaaa");
         }else{
             cc.loader.loadRes("Prefabs/CustomPop",function(err,prefab){
                 if( err ){
                     return;
                 }
-
+                cc.log("bbbbbbbbb");
                 self._customPop = cc.instantiate(prefab);
                 self._customPop.parent = self.node;
                 self._customPop.getComponent("CustomPop").show(data);
