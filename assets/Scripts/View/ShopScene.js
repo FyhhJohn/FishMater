@@ -76,6 +76,7 @@ cc.Class({
             clickEventHandler.customEventData = {
                 type: diamondConfig[i].costType, //1-钻石 2-金币
                 cost: diamondConfig[i].cost,
+                num: diamondConfig[i].num,
             };
 
             btn.clickEvents.push(clickEventHandler);
@@ -100,6 +101,7 @@ cc.Class({
             clickEventHandler.customEventData = {
                 type: goldConfig[j].costType, //1-钻石 2-金币
                 cost: goldConfig[j].cost,
+                num: goldConfig[j].num,
             };
 
             btn.clickEvents.push(clickEventHandler);
@@ -111,7 +113,9 @@ cc.Class({
         //TODO 
         //buyItem
         if( customEventData.type == ItemType.type_gold ){
-            GameManager.GameControler.updateGoldValue(customEventData.cost);
+            GameManager.GameControler.updateGoldValue(customEventData.num);
+        }else{
+            GameManager.GameControler.updateDiamondValue(customEventData.num);
         }
     },
 

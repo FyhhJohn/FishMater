@@ -20,6 +20,7 @@ cc.Class({
         this.userInfo.diamond = UserDefault.getInt("diamond");
         this.userInfo.gunIndex = UserDefault.getInt("gunIndex");
         this.userInfo.userID = UserDefault.getString("UserID");
+        this.userInfo.diamond = 0;
 
         this.parseShopConfig();
         this.parseFishConfig();
@@ -84,7 +85,7 @@ cc.Class({
     },
 
     getGunConfig: function(gunName){
-        return this.fishConfig[gunName];
+        return this.gunConfig[gunName];
     },
 });
 

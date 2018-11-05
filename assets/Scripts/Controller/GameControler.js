@@ -13,7 +13,6 @@ cc.Class({
 
         goldValue: 100000,
         diamondValue: 0,
-        hasGunIndex: 0,
         
         costLabel: cc.Label,
         goldPrefabs: [cc.Prefab],
@@ -48,7 +47,7 @@ cc.Class({
         var userInfo = GameManager.DataManager.getUserInfo();
         this.goldValue = userInfo.gold;
         this.diamondValue = userInfo.diamond;
-        this.hasGunIndex = userInfo.gunIndex;
+        this._gunIndex = userInfo.gunIndex;
 
         this.goldColor = this.goldLabel.node.color;
         this.goldLabel.string = "$"+this.goldValue;
@@ -207,6 +206,12 @@ cc.Class({
 
     },
 
+    updateDiamondValue: function(diamondValue){
+        this.diamondValue += diamondValue;
+        this.diamondLabel.string = "" + this.diamondValue;
+        GameManager.DataManager.userInfo.diamond = this.diamondValue;
+    },
+
     getGoldCount: function(gold){
         var count = 0;
         if( gold >= 1000 ){
@@ -290,5 +295,7 @@ cc.Class({
         this.GunList[this._gunIndex].rotation = rotation;
         cc.log("GunIndex = "+this._gunIndex);
         this._bulletIndex = 0;
+        GameManager.DataManager.userInfo.gunIndex = this._gunIndex;
+        this.updateCost();
     },
 });

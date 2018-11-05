@@ -66,10 +66,10 @@ cc.Class({
         SoundManager.stopMusic();
     },
 
-    showPop: function(data){
+    showPop: function(data,func){
         var self = this;
         if( self._customPop ){
-            self._customPop.getComponent("CustomPop").show(data)
+            self._customPop.getComponent("CustomPop").show(data,func)
             cc.log("aaaaaaaaaaaaa");
         }else{
             cc.loader.loadRes("Prefabs/CustomPop",function(err,prefab){
@@ -79,7 +79,7 @@ cc.Class({
                 cc.log("bbbbbbbbb");
                 self._customPop = cc.instantiate(prefab);
                 self._customPop.parent = self.node;
-                self._customPop.getComponent("CustomPop").show(data);
+                self._customPop.getComponent("CustomPop").show(data,func);
             });
         }
     }

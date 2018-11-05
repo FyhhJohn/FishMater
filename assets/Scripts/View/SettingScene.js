@@ -55,7 +55,7 @@ cc.Class({
 
     backClicked: function(){
         GameManager.FishFactory.node.getComponent("FishFactory").clearFishPool();
-        UserDefault.setInt("gold",GameManager.GameControler.goldValue);
+        GameManager.GameControler.saveInfo();
         cc.director.loadScene("StartScene");
     },
 });
