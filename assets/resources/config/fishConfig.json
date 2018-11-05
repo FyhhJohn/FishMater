@@ -1,0 +1,20 @@
+{	
+	"bigeyeFish":     {"name": "大眼鱼","gold": 80, "maxbloodValue":100, "speed":150, "num": 6},
+	"butterflyFish":  {"name": "蝴蝶鱼","gold": 480, "maxbloodValue":600, "speed":100, "num": 5},
+	"celestialFish":  {"name": "神仙鱼","gold": 160, "maxbloodValue":200, "speed":120, "num": 4},
+	"clownFish":      {"name": "小丑鱼","gold": 80, "maxbloodValue":100, "speed":150, "num": 6},
+	"colorCloud":     {"name": "彩云",  "gold": 200, "maxbloodValue":250, "speed":100, "num": 5},
+	"cricketFish":    {"name": "蟋蟀鱼","gold": 40, "maxbloodValue":50,  "speed":150, "num": 7},
+	"devilFish":      {"name": "魔鬼鱼","gold": 800, "maxbloodValue":1000,"speed":100, "num": 4},
+	"goldSharkFish":  {"name": "金鲨",  "gold": 4000, "maxbloodValue":5000,"speed":80,  "num": 2},
+	"grouper":        {"name": "石斑鱼","gold": 120, "maxbloodValue":150, "speed":140, "num": 6},
+	"guppy":          {"name": "孔雀鱼","gold": 320, "maxbloodValue":400, "speed":120, "num": 6},
+	"lanternFish":    {"name": "灯笼鱼","gold": 240, "maxbloodValue":300, "speed":140, "num": 6},
+	"porcupineFish":  {"name": "刺猬鱼","gold": 160, "maxbloodValue":200, "speed":130, "num": 6},
+	"silverSharkFish":{"name": "银鲨",  "gold": 3600, "maxbloodValue":4500,"speed":80,  "num": 2},
+	"smallBlueFish":  {"name": "小蓝鱼","gold": 240, "maxbloodValue":300, "speed":140, "num": 6},
+	"smallGreenFish": {"name": "小青鱼","gold": 40, "maxbloodValue":50,  "speed":180, "num": 8},
+	"smallYellowFish":{"name": "小黄鱼","gold": 160, "maxbloodValue":200, "speed":160, "num": 8},
+	"tortoise":       {"name": "乌龟",  "gold": 480, "maxbloodValue":600, "speed":130, "num": 4},
+	"tuna":           {"name": "枪鱼",  "gold": 640, "maxbloodValue":800, "speed":80,  "num": 4}
+}

@@ -53,7 +53,6 @@ cc.Class({
     addFish: function(){
         var max = this.fishPrefabs.length;
         var fishIndex = Math.floor(Math.random()*max);
-
         var data = this.fishPrefabs[fishIndex].data.getComponent("Fish");
         var num = Utils.random(data.num/2, data.num) ;
 
@@ -67,6 +66,7 @@ cc.Class({
                 let moveAngle = Utils.random(4,8);   //旋转的角度
 
                 let fish = self.getFish(fishIndex);
+                fish.getComponent("Fish").initData();
                 fish.parent = self.fishPanel;
                 fish.position = self.genPos[genIndex].position;
                 fish.rotation = self.genPos[genIndex].rotation;

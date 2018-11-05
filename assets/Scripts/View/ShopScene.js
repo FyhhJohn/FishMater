@@ -1,4 +1,7 @@
-
+const ItemType = {
+    type_diamond: 1,
+    type_gold: 2,
+}
 
 cc.Class({
     extends: cc.Component,
@@ -63,6 +66,19 @@ cc.Class({
             num.getComponent(cc.Label).string = diamondConfig[i].num;
             let cost = item.getChildByName("cost");
             cost.getComponent(cc.Label).string = diamondConfig[i].cost;
+            
+            let btnNode = item.getChildByName("buy");
+            let btn = btnNode.getComponent(cc.Button);
+            let clickEventHandler = new cc.Component.EventHandler();
+            clickEventHandler.target = this.node;
+            clickEventHandler.component = "ShopScene";
+            clickEventHandler.handler = "onBuyItemCallback";
+            clickEventHandler.customEventData = {
+                type: diamondConfig[i].costType, //1-钻石 2-金币
+                cost: diamondConfig[i].cost,
+            };
+
+            btn.clickEvents.push(clickEventHandler);
         }
 
         cc.log(goldConfig);
@@ -74,6 +90,28 @@ cc.Class({
             num.getComponent(cc.Label).string = goldConfig[j].num;
             let cost = item.getChildByName("cost")
             cost.getComponent(cc.Label).string = goldConfig[j].cost;
+
+            let btnNode = item.getChildByName("buy");
+            let btn = btnNode.getComponent(cc.Button);
+            let clickEventHandler = new cc.Component.EventHandler();
+            clickEventHandler.target = this.node;
+            clickEventHandler.component = "ShopScene";
+            clickEventHandler.handler = "onBuyItemCallback";
+            clickEventHandler.customEventData = {
+                type: goldConfig[j].costType, //1-钻石 2-金币
+                cost: goldConfig[j].cost,
+            };
+
+            btn.clickEvents.push(clickEventHandler);
+        }
+    },
+
+    onBuyItemCallback: function(target, customEventData){
+        cc.log(customEventData);
+        //TODO 
+        //buyItem
+        if( customEventData.type == ItemType.type_gold ){
+            GameManager.GameControler.updateGoldValue(customEventData.cost);
         }
     },
 

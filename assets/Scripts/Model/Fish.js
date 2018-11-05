@@ -19,8 +19,16 @@ cc.Class({
     },
     
     onLoad: function(){
-        this.maxbloodValue = this.bloodValue;
-        this.gold = this.bloodValue * 0.8;
+    },
+
+    initData: function(){
+        var fishConfig = GameManager.DataManager.getFishConfig(this.node.name);
+        this.maxbloodValue = fishConfig.maxbloodValue;
+        this.bloodValue = fishConfig.maxbloodValue;
+
+        this.gold = fishConfig.gold;
+        this.speed = fishConfig.speed;
+        this.num = fishConfig.num;
     },
 
     update: function(dt){

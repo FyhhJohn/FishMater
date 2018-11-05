@@ -1,4 +1,3 @@
-var DataManager = require("DataManager");
 
 cc.Class({
     extends: cc.Component,
@@ -39,7 +38,6 @@ cc.Class({
 
     onLoad () {
         GameManager.GameControler = this;
-        GameManager.DataManager = new DataManager();
         
         var userInfo = GameManager.DataManager.getUserInfo();
         this.goldValue = userInfo.gold;
@@ -258,5 +256,16 @@ cc.Class({
         this.updateCost();
 
         SoundManager.playEffect("FX_换炮_01");
+    },
+
+    upgradeGun: function(){
+        this.GunList[this._gunIndex].active = false;
+        var rotation = this.GunList[this._gunIndex].rotation;
+        this._gunIndex++;
+        this._gunIndex = (this._gunIndex % this.GunList.length);
+        this.GunList[this._gunIndex].active = true;
+        this.GunList[this._gunIndex].rotation = rotation;
+        cc.log("GunIndex = "+this._gunIndex);
+        this._bulletIndex = 0;
     },
 });

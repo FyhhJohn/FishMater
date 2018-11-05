@@ -6,15 +6,19 @@ cc.Class({
     properties: {
         _settingUI: null,
         _shopUI: null,
+        _customPop: null,
     },
 
     onLoad: function(){
         GameManager.MainScene = this;
 
-        SoundManager.playMusic("背景乐_01");
+        var musicIndex =  Utils.random(1,4);
+        SoundManager.playMusic("背景乐_0"+musicIndex);
     },
 
     onSettingClicked: function(){
+        SoundManager.playEffect("后台按键音_01");
+
         var self = this;
         if( this._settingUI ){
             this._settingUI.getComponent("SettingScene").show();
@@ -33,6 +37,8 @@ cc.Class({
     },
 
     onShopClicked: function(){
+        SoundManager.playEffect("后台按键音_01");
+
         cc.log("onShopClicked");
         var self = this;
         if( this._shopUI  ){
@@ -54,4 +60,20 @@ cc.Class({
         SoundManager.stopEffect();
         SoundManager.stopMusic();
     },
+
+    showPop: function(data){
+        if( this._customPop ){
+            this._customPop.getComponent("CustomPos").show(data)
+        }else{
+            cc.loader.loadRes("Prefabs/CustomPop",function(err,prefab){
+                if( err ){
+                    return;
+                }
+
+                self._customPop = cc.instantiate(prefab);
+                self._customPop.parent = self.node;
+                self._customPop.getComponent("CustomPop").show(data);
+            });
+        }
+    }
 });
