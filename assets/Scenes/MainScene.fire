@@ -106,6 +106,9 @@
       },
       {
         "__id__": 263
+      },
+      {
+        "__id__": 264
       }
     ],
     "_prefab": null,
@@ -242,7 +245,6 @@
     },
     "goldValue": 10000,
     "diamondValue": 0,
-    "hasGunIndex": 0,
     "costLabel": {
       "__id__": 66
     },
@@ -272,7 +274,10 @@
     "_goldTime1": 99,
     "_goldTime2": 20,
     "_gunIndex": 0,
-    "_bulletIndex": 0
+    "_bulletIndex": 0,
+    "_shoot": false,
+    "_shootTime": 0,
+    "_touchEvent": null
   },
   {
     "__type__": "cc.Node",
@@ -3280,7 +3285,8 @@
       {
         "__uuid__": "527fded2-0199-4d1d-8f1f-54d64f03e671"
       }
-    ]
+    ],
+    "_GunInfo": null
   },
   {
     "__type__": "cc.BlockInputEvents",
@@ -4014,7 +4020,8 @@
       {
         "__uuid__": "5b98f107-6ad0-43d5-b148-ede4b104112d"
       }
-    ]
+    ],
+    "_GunInfo": null
   },
   {
     "__type__": "cc.BlockInputEvents",
@@ -4559,7 +4566,8 @@
       {
         "__uuid__": "9a1919e5-0dba-4322-bc02-0d47188cf9af"
       }
-    ]
+    ],
+    "_GunInfo": null
   },
   {
     "__type__": "cc.BlockInputEvents",
@@ -5291,7 +5299,8 @@
       {
         "__uuid__": "fe9e00f7-5cbf-4eaf-827b-344de398f2e2"
       }
-    ]
+    ],
+    "_GunInfo": null
   },
   {
     "__type__": "cc.BlockInputEvents",
@@ -5728,7 +5737,8 @@
       {
         "__uuid__": "ba8aa4b4-092b-464f-afe3-2be61922e09c"
       }
-    ]
+    ],
+    "_GunInfo": null
   },
   {
     "__type__": "cc.BlockInputEvents",
@@ -9395,5 +9405,31 @@
     "_settingUI": null,
     "_shopUI": null,
     "_customPop": null
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "isAlignOnce": true,
+    "_target": null,
+    "_alignFlags": 45,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 1280,
+    "_originalHeight": 720
   }
 ]

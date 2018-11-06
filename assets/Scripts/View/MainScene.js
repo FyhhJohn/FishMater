@@ -18,11 +18,11 @@ cc.Class({
         GameManager.MainScene = this;
 
         var musicIndex =  Utils.random(1,4);
-        SoundManager.playMusic("背景乐_0"+musicIndex);
+        GameManager.SoundManager.playMusic("背景乐_0"+musicIndex);
     },
 
     onSettingClicked: function(){
-        SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("后台按键音_01");
 
         var self = this;
         if( this._settingUI ){
@@ -42,7 +42,7 @@ cc.Class({
     },
 
     onShopClicked: function(){
-        SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("后台按键音_01");
 
         cc.log("onShopClicked");
         var self = this;
@@ -62,8 +62,8 @@ cc.Class({
     },
 
     onDestroy: function(){
-        SoundManager.stopEffect();
-        SoundManager.stopMusic();
+        GameManager.SoundManager.stopEffect();
+        GameManager.SoundManager.stopMusic();
     },
 
     showPop: function(data,func){

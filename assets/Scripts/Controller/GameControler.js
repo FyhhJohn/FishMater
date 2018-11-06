@@ -118,7 +118,7 @@ cc.Class({
             return;
         }
 
-        SoundManager.playEffect("FX_发炮_01");
+        GameManager.SoundManager.playEffect("FX_发炮_01");
 
         this.updateGoldValue(-cost);
 
@@ -185,7 +185,7 @@ cc.Class({
                         }
                         index++;
                         gold.destroy();
-                        SoundManager.playEffect(effectName);
+                        GameManager.SoundManager.playEffect(effectName);
                     }) 
                 ) );
                 delayTime += 0.35;
@@ -262,7 +262,8 @@ cc.Class({
 
         this.updateButton();
         this.updateCost();
-        SoundManager.playEffect("FX_换炮_01");
+
+        GameManager.SoundManager.playEffect("后台按键音_01");
     },
 
     //降低炮威力
@@ -276,7 +277,8 @@ cc.Class({
         this.updateButton();
         this.updateCost();
 
-        SoundManager.playEffect("FX_换炮_01");
+        GameManager.SoundManager.playEffect("后台按键音_01");
+
     },
 
     updateButton: function(){
@@ -296,6 +298,10 @@ cc.Class({
         cc.log("GunIndex = "+this._gunIndex);
         this._bulletIndex = 0;
         GameManager.DataManager.userInfo.gunIndex = this._gunIndex;
+
+        this.updateButton();
         this.updateCost();
+
+        GameManager.SoundManager.playEffect("FX_换炮_01");
     },
 });

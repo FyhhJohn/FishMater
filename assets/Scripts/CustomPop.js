@@ -8,6 +8,9 @@ cc.Class({
         content: cc.Label,
         lay: cc.Node,
 
+        btnOk:     cc.Button,
+        btnCancel: cc.Button,
+
         _isClose: false,
         _callBack: null,
     },
@@ -31,6 +34,13 @@ cc.Class({
         this.lay.runAction( cc.sequence( scaleAct1, scaleAct2) );
 
         this._callBack = func;
+
+        if( func ){
+            this.btnOk.node.active = true;
+            this.btnCancel.node.active = true;
+        }else{
+            this.btnCancel.node.active = false;
+        }
     },
 
     hide: function(){
@@ -48,10 +58,16 @@ cc.Class({
         })  ) );
     },
 
+    onCancelClickCallback: function(){
+        GameManager.SoundManager.playEffect("后台按键音_01");
+        this.hide();
+    },
+
     onOkClickCallback: function(){
+        GameManager.SoundManager.playEffect("后台按键音_01");
+
+        this.hide();
         if( this._callBack ){
-            cc.log("確定");
-            this.hide();
             this._callBack();
         }
     },

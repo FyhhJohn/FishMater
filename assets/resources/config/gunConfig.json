@@ -1,7 +1,7 @@
 {
-	"SGun":   { "upGrageCost":50    },
-	"2Gun":   { "upGrageCost":200   },
-	"3Gun":   { "upGrageCost":500   },
-	"4Gun":   { "upGrageCost":1000  },
-	"1000Gun":{ "upGrageCost":2000  }
+	"SGun":   { "upGrageCost":50  , "isUpGrade": true },
+	"2Gun":   { "upGrageCost":200 , "isUpGrade": true },
+	"3Gun":   { "upGrageCost":500 , "isUpGrade": true },
+	"4Gun":   { "upGrageCost":1000, "isUpGrade": true },
+	"1000Gun":{ "upGrageCost":0,    "isUpGrade": false}
 }

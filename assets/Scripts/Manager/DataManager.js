@@ -16,12 +16,6 @@ cc.Class({
             userID: null,
         }
 
-        this.userInfo.gold = UserDefault.getInt("gold");
-        this.userInfo.diamond = UserDefault.getInt("diamond");
-        this.userInfo.gunIndex = UserDefault.getInt("gunIndex");
-        this.userInfo.userID = UserDefault.getString("UserID");
-        this.userInfo.diamond = 0;
-
         this.parseShopConfig();
         this.parseFishConfig();
         this.parseGunConfig();
@@ -32,7 +26,7 @@ cc.Class({
     //解析商城数据
     parseShopConfig:function(){
         var self = this;
-        var url = "config/shopConfig";
+        var url = "Config/shopConfig";
         cc.loader.loadRes( url, function( err, res){
             if(err){
                 cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
@@ -46,7 +40,7 @@ cc.Class({
     //解析鱼数据
     parseFishConfig: function(){
         var self = this;
-        var url = "config/fishConfig";
+        var url = "Config/fishConfig";
         cc.loader.loadRes( url, function( err, res){
             if(err){
                 cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
@@ -60,7 +54,7 @@ cc.Class({
 
     parseGunConfig: function(){
         var self = this;
-        var url = "config/gunConfig";
+        var url = "Config/gunConfig";
         cc.loader.loadRes( url, function( err, res){
             if(err){
                 cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));

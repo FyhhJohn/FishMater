@@ -29,7 +29,7 @@ cc.Class({
             web.position = self.node.position;
             self.node.destroy();            
             
-            SoundManager.playEffect("FX_开网_01");
+            GameManager.SoundManager.playEffect("FX_开网_01");
         }
     },
 });

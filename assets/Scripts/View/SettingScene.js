@@ -12,18 +12,24 @@ cc.Class({
 
     onLoad: function(){
         this._isClose = false;
-        this.effectToggle.isChecked = SoundManager.isEffectOn();
-        this.musicToggle.isChecked = SoundManager.isMusicOn();
+        this.effectToggle.isChecked = GameManager.SoundManager.isEffectOn();
+        this.musicToggle.isChecked = GameManager.SoundManager.isMusicOn();
     },
 
     onEffectBtnClicked: function(toggle, customEventData){
         var _toggle = toggle.node.getComponent(cc.Toggle);
-        SoundManager.setEffectOn(_toggle.isChecked);
+        GameManager.SoundManager.setEffectOn(_toggle.isChecked);
+
+        GameManager.SoundManager.playEffect("后台按键音_01");
+
     },
 
     onMusicBtnClicked: function(toggle, customEventData){
         var _toggle = toggle.node.getComponent(cc.Toggle);
-        SoundManager.setMusicOn(_toggle.isChecked);
+        GameManager.SoundManager.setMusicOn(_toggle.isChecked);
+        
+        GameManager.SoundManager.playEffect("后台按键音_01");
+
     },
 
     show: function(){
@@ -54,6 +60,8 @@ cc.Class({
     },
 
     backClicked: function(){
+        GameManager.SoundManager.playEffect("后台按键音_01");
+
         GameManager.FishFactory.node.getComponent("FishFactory").clearFishPool();
         GameManager.GameControler.saveInfo();
         cc.director.loadScene("StartScene");

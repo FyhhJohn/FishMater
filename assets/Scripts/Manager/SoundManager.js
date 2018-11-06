@@ -1,5 +1,5 @@
 
-var SoundManager = cc.Class({
+cc.Class({
 
     properties: {
         _musicId: null,
@@ -98,5 +98,3 @@ var SoundManager = cc.Class({
         return this._isMusicOn;
     },
 });
-
-window.SoundManager = new SoundManager(); 

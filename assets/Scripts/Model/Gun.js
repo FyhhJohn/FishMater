@@ -23,15 +23,31 @@ cc.Class({
     },
 
     onClickCallback: function(target,customEventData){
+        GameManager.SoundManager.playEffect("后台按键音_01");
+
+        var userInfo = GameManager.DataManager.getUserInfo();
         var self = this;
+        
+        if( !self._GunInfo.isUpGrade ){
+            GameManager.MainScene.showPop({
+                title: "提示",
+                content: `您的炮台已经是满级,无法升级了！`
+            });
+            return;
+        }
+
         GameManager.MainScene.showPop({
             title: "升级",
             content: `是否消耗${self._GunInfo.upGrageCost}钻石升级炮台威力?`
         },function(){
-            var userInfo = GameManager.DataManager.getUserInfo();
             if( userInfo.diamond >= self._GunInfo.upGrageCost ){
                 GameManager.GameControler.upgradeGun();
                 GameManager.GameControler.updateDiamondValue(-1*self._GunInfo.upGrageCost);
+
+                GameManager.MainScene.showPop({
+                    title: "提示",
+                    content: `您的炮台升级成功`
+                });
             }else{
                 GameManager.MainScene.showPop({
                     title: "提示",

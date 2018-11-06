@@ -47,6 +47,8 @@ cc.Class({
     },
 
     onTypeClicked: function(event,customData){
+        GameManager.SoundManager.playEffect("后台按键音_01");
+
         cc.log(customData);
         this.changeLay(customData);
     },
@@ -110,6 +112,9 @@ cc.Class({
 
     onBuyItemCallback: function(target, customEventData){
         cc.log(customEventData);
+
+        GameManager.SoundManager.playEffect("后台按键音_01");
+
         //TODO 
         //buyItem
         if( customEventData.type == ItemType.type_gold ){
