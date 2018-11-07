@@ -6,10 +6,19 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        loginNode: cc.Node,
-        nameEdit: cc.EditBox,
+        loginNode:    cc.Node,
+        nameEdit:     cc.EditBox,
         passwordEdit: cc.EditBox,
+        nameTip:      cc.Label,
+        passwordTip:  cc.Label,
+
+
+        loginBtn:     cc.Button,
+        registerBtn:  cc.Button,
+
         _customPop: null,
+        _nameIsValid: false,
+        _pswdIsValid: false,
     },
 
     start () {
@@ -29,6 +38,8 @@ cc.Class({
 
         var self = this;
         this.loginNode.active = true;
+        this.nameTip.node.active = false;
+        this.passwordTip.node.active = false;
 
         var userInfo = GameManager.DataManager.getUserInfo();
         cc.log(userInfo);
@@ -80,6 +91,50 @@ cc.Class({
             }
             self.showPop(info);
         });
+    },
+
+    onNameEditEnd: function(){
+        var name = this.nameEdit.string;
+        cc.log(name);
+        cc.log(name.replace(/[^\w\.\/]/ig,''))
+        if( name == "" ){
+            this.nameTip.string = "请输入昵称"
+            this.nameTip.node.active = true;
+            this._nameIsValid = false;
+            return;
+        }
+        if( name != name.replace(/[^\w\.\/]/ig,'') ){
+            this.nameTip.node.active = true;
+            this.nameTip.string = "必须字母、数字和下划线";
+            this._nameIsValid = false;
+            return;
+        }
+
+        this.nameTip.node.active = false;
+
+        this.loginBtn.interactable = (this._nameIsValid && this._pswdIsValid);
+        this.registerBtn.interactable = (this._nameIsValid && this._pswdIsValid);
+    },
+
+    onPasswordEditEnd: function(){
+        var password = this.passwordEdit.string;
+        if( password == "" ){
+            this.passwordTip.string = "请输入密码"
+            this.passwordTip.node.active = true;
+            this._pswdIsValid = false;
+            return;
+        }
+        if( password == password.replace(/[^/d]/g,'') ){
+            this.passwordTip.string = "必须是数字"
+            this.passwordTip.node.active = true;
+            this._pswdIsValid = false;
+            return;
+        }
+
+        this.passwordTip.node.active = false;
+        
+        this.loginBtn.interactable = (this._nameIsValid && this._pswdIsValid);
+        this.registerBtn.interactable = (this._nameIsValid && this._pswdIsValid);
     },
 
     onNewGame: function(){
