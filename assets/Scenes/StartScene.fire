@@ -75,13 +75,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 97
-      },
-      {
         "__id__": 98
       },
       {
         "__id__": 99
+      },
+      {
+        "__id__": 100
       }
     ],
     "_prefab": null,
@@ -158,7 +158,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 39
@@ -1262,7 +1262,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 42
@@ -1933,13 +1933,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 94
-      },
-      {
         "__id__": 95
       },
       {
         "__id__": 96
+      },
+      {
+        "__id__": 97
       }
     ],
     "_prefab": null,
@@ -2306,7 +2306,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "昵称:",
+    "_N$string": "账号:",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2481,7 +2481,7 @@
       "b": 127,
       "a": 255
     },
-    "_N$maxLength": 8,
+    "_N$maxLength": 9,
     "_N$stayOnTop": false
   },
   {
@@ -2513,9 +2513,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 201,
-      "g": 25,
-      "b": 25,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -2587,9 +2587,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 201,
-      "g": 25,
-      "b": 25,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -2736,7 +2736,7 @@
       "b": 127,
       "a": 255
     },
-    "_N$maxLength": 8,
+    "_N$maxLength": 9,
     "_N$stayOnTop": false
   },
   {
@@ -2760,17 +2760,17 @@
         "__id__": 81
       },
       {
-        "__id__": 86
+        "__id__": 87
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 92
+        "__id__": 93
       },
       {
-        "__id__": 93
+        "__id__": 94
       }
     ],
     "_prefab": null,
@@ -2994,7 +2994,11 @@
     },
     "duration": 0.1,
     "zoomScale": 1.1,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 86
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -3034,6 +3038,15 @@
     }
   },
   {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 2
+    },
+    "component": "StartScene",
+    "handler": "onRegisterClicked",
+    "customEventData": ""
+  },
+  {
     "__type__": "cc.Node",
     "_name": "btnLogin",
     "_objFlags": 0,
@@ -3042,17 +3055,17 @@
     },
     "_children": [
       {
-        "__id__": 87
+        "__id__": 88
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 89
+        "__id__": 90
       },
       {
-        "__id__": 90
+        "__id__": 91
       }
     ],
     "_prefab": null,
@@ -3097,14 +3110,14 @@
     "_name": "Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 86
+      "__id__": 87
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 88
+        "__id__": 89
       }
     ],
     "_prefab": null,
@@ -3149,7 +3162,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 87
+      "__id__": 88
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -3171,7 +3184,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 86
+      "__id__": 87
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3197,7 +3210,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 86
+      "__id__": 87
     },
     "_enabled": true,
     "transition": 3,
@@ -3219,7 +3232,7 @@
     "zoomScale": 1.1,
     "clickEvents": [
       {
-        "__id__": 91
+        "__id__": 92
       }
     ],
     "_N$interactable": true,
@@ -3257,7 +3270,7 @@
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
     "_N$target": {
-      "__id__": 86
+      "__id__": 87
     }
   },
   {
@@ -3266,7 +3279,7 @@
       "__id__": 2
     },
     "component": "StartScene",
-    "handler": "onLoginIn",
+    "handler": "onLoginClicked",
     "customEventData": ""
   },
   {
@@ -3423,10 +3436,18 @@
     "passwordEdit": {
       "__id__": 78
     },
-    "nameTip": null,
-    "passwordTip": null,
-    "loginBtn": null,
-    "registerBtn": null,
+    "nameTip": {
+      "__id__": 74
+    },
+    "passwordTip": {
+      "__id__": 76
+    },
+    "loginBtn": {
+      "__id__": 91
+    },
+    "registerBtn": {
+      "__id__": 85
+    },
     "_customPop": null,
     "_nameIsValid": false,
     "_pswdIsValid": false

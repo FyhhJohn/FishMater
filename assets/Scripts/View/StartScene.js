@@ -46,10 +46,6 @@ cc.Class({
         if( (!userInfo.userID || userInfo.userID == "null" || userInfo.userID == "" ) || (!userInfo.password || userInfo.password == "null" || userInfo.password == "" ) ){
             this.loginNode.active = true;
         }else{
-            var data = {
-                userID:  userInfo.userID,
-                password:userInfo.password, 
-            }
             this.nameEdit.string     = userInfo.userID;
             this.passwordEdit.string = userInfo.password;
 
@@ -66,7 +62,7 @@ cc.Class({
         if( logindata.userID == "" || logindata.password == "" ){
             var tip = {
                 title: "提示",
-                content: "请输入昵称或密码！"
+                content: "请输入账号或密码！"
             }
             this.showPop(tip);
             return;
@@ -98,7 +94,7 @@ cc.Class({
         cc.log(name);
         cc.log(name.replace(/[^\w\.\/]/ig,''))
         if( name == "" ){
-            this.nameTip.string = "请输入昵称"
+            this.nameTip.string = "请输入账号"
             this.nameTip.node.active = true;
             this._nameIsValid = false;
             return;
@@ -106,6 +102,13 @@ cc.Class({
         if( name != name.replace(/[^\w\.\/]/ig,'') ){
             this.nameTip.node.active = true;
             this.nameTip.string = "必须字母、数字和下划线";
+            this._nameIsValid = false;
+            return;
+        }
+
+        if( name.length < 8 ){
+            this.nameTip.node.active = true;
+            this.nameTip.string = "至少是8个字符";
             this._nameIsValid = false;
             return;
         }
@@ -130,6 +133,12 @@ cc.Class({
             this._pswdIsValid = false;
             return;
         }
+        if( password.length < 8 ){
+            this.passwordTip.string = "至少是8位数"
+            this.passwordTip.node.active = true;
+            this._pswdIsValid = false;
+            return;
+        }
 
         this.passwordTip.node.active = false;
         
@@ -149,6 +158,15 @@ cc.Class({
 
     onDestroy: function(){
         GameManager.SoundManager.stopMusic();
+    },
+
+    onLoginClicked: function(){
+        GameManager.SoundManager.playEffect("后台按键音_01");
+        this.onLoginIn();
+    },
+
+    onRegisterClicked: function(){
+        GameManager.SoundManager.playEffect("后台按键音_01");
     },
 
     showPop: function(data,func){
