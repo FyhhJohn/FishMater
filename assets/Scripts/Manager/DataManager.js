@@ -14,7 +14,11 @@ cc.Class({
             diamond: 0,
             gunIndex: 0,
             userID: null,
+            password: null,
         }
+
+        this.userInfo.userID = UserDefault.getString("userID");
+        this.userInfo.password = UserDefault.getString("password");
 
         this.parseShopConfig();
         this.parseFishConfig();
@@ -80,6 +84,11 @@ cc.Class({
 
     getGunConfig: function(gunName){
         return this.gunConfig[gunName];
+    },
+
+    saveUserInfo: function(){
+        UserDefault.setString("userID",   this.userInfo.userID  );
+        UserDefault.setString("password", this.userInfo.password);
     },
 });
 
