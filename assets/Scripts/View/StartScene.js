@@ -7,16 +7,27 @@ cc.Class({
 
     properties: {
         loginNode:    cc.Node,
+        
+        nameLay:      cc.Node,
         nameEdit:     cc.EditBox,
-        passwordEdit: cc.EditBox,
         nameTip:      cc.Label,
+        
+        passwordLay:  cc.Node,
+        passwordEdit: cc.EditBox,
         passwordTip:  cc.Label,
 
+        passwordLay2:  cc.Node,
+        passwordEdit2: cc.EditBox,
+        passwordTip2:  cc.Label,
+
+        chooseNode:   cc.Node,
+
+        titleLab:     cc.Label,
 
         loginBtn:     cc.Button,
         registerBtn:  cc.Button,
 
-        _customPop: null,
+        _customPop:   null,
         _nameIsValid: false,
         _pswdIsValid: false,
     },
@@ -37,14 +48,16 @@ cc.Class({
         GameManager.SoundManager.playMusic("背景乐_01");
 
         var self = this;
-        this.loginNode.active = true;
+
+        this.loginNode.active = false;
+        this.chooseNode.active = false;
+
         this.nameTip.node.active = false;
-        this.passwordTip.node.active = false;
 
         var userInfo = GameManager.DataManager.getUserInfo();
         cc.log(userInfo);
         if( (!userInfo.userID || userInfo.userID == "null" || userInfo.userID == "" ) || (!userInfo.password || userInfo.password == "null" || userInfo.password == "" ) ){
-            this.loginNode.active = true;
+            this.chooseNode.active = true;
         }else{
             this.nameEdit.string     = userInfo.userID;
             this.passwordEdit.string = userInfo.password;
@@ -55,7 +68,8 @@ cc.Class({
 
     onLoginIn: function(){
         var logindata = {
-            userID:   this.nameEdit.string,
+            command: "login",
+            userName:   this.nameEdit.string,
             password: this.passwordEdit.string
         }
 
@@ -70,7 +84,7 @@ cc.Class({
 
         cc.log(logindata);
         var self = this;
-        GameManager.HttpManager.onLoginIn(logindata,(data)=>{
+        GameManager.HttpManager.login(logindata,(data)=>{
 
             GameManager.DataManager.userInfo.gold     = data["gold"];
             GameManager.DataManager.userInfo.diamond  = data["diamond"];
@@ -91,7 +105,6 @@ cc.Class({
 
     onNameEditEnd: function(){
         var name = this.nameEdit.string;
-        cc.log(name);
         cc.log(name.replace(/[^\w\.\/]/ig,''))
         if( name == "" ){
             this.nameTip.string = "请输入账号"
@@ -106,44 +119,42 @@ cc.Class({
             return;
         }
 
-        if( name.length < 8 ){
+        if( name.length < 4 ){
             this.nameTip.node.active = true;
-            this.nameTip.string = "至少是8个字符";
+            this.nameTip.string = "至少是4个字符";
             this._nameIsValid = false;
             return;
         }
 
         this.nameTip.node.active = false;
-
-        this.loginBtn.interactable = (this._nameIsValid && this._pswdIsValid);
-        this.registerBtn.interactable = (this._nameIsValid && this._pswdIsValid);
     },
 
     onPasswordEditEnd: function(){
         var password = this.passwordEdit.string;
+        var result = this.checkPasswordIsValid(password);
+        this.passwordTip.string = result;
+        cc.log("onPasswordEditEnd");
+    },
+
+    onPasswordEdit2End: function(){
+        var password = this.passwordEdit2.string;
+        var result = this.checkPasswordIsValid(password);
+        this.passwordTip2.string = result;
+        cc.log("onPasswordEdit2End");
+    },
+
+    checkPasswordIsValid: function(password){
         if( password == "" ){
-            this.passwordTip.string = "请输入密码"
-            this.passwordTip.node.active = true;
-            this._pswdIsValid = false;
-            return;
+            return "请输入密码";
         }
         if( password == password.replace(/[^/d]/g,'') ){
-            this.passwordTip.string = "必须是数字"
-            this.passwordTip.node.active = true;
-            this._pswdIsValid = false;
-            return;
+            return "必须是数字";
         }
         if( password.length < 8 ){
-            this.passwordTip.string = "至少是8位数"
-            this.passwordTip.node.active = true;
-            this._pswdIsValid = false;
-            return;
+            return "至少是8位数";
         }
 
-        this.passwordTip.node.active = false;
-        
-        this.loginBtn.interactable = (this._nameIsValid && this._pswdIsValid);
-        this.registerBtn.interactable = (this._nameIsValid && this._pswdIsValid);
+        return "";
     },
 
     onNewGame: function(){
@@ -160,6 +171,28 @@ cc.Class({
         GameManager.SoundManager.stopMusic();
     },
 
+    onChooseLoginClicked: function(){
+        this.loginNode.active = true;
+        this.chooseNode.active = false;
+        this.titleLab.string = "登 陆";
+        this.passwordLay2.active = false;
+        this.nameLay.position = cc.v2(0,48);
+        this.passwordLay.position = cc.v2(0,-30);
+        this.loginBtn.node.active = true;
+        this.registerBtn.node.active = false;
+    },
+
+    onChooseRegisterClicked: function(){
+        this.loginNode.active = true;
+        this.chooseNode.active = false;
+        this.titleLab.string = "注 册";
+        this.passwordLay2.active = true;
+        this.nameLay.position = cc.v2(0,69);
+        this.passwordLay.position = cc.v2(0,4);
+        this.loginBtn.node.active = false;
+        this.registerBtn.node.active = true;
+    },
+
     onLoginClicked: function(){
         GameManager.SoundManager.playEffect("后台按键音_01");
         this.onLoginIn();
@@ -167,6 +200,22 @@ cc.Class({
 
     onRegisterClicked: function(){
         GameManager.SoundManager.playEffect("后台按键音_01");
+
+        var logindata = {
+            userID:   this.nameEdit.string,
+            password: this.passwordEdit.string
+        }
+
+        if( logindata.userID == "" || logindata.password == "" ){
+            var tip = {
+                title: "提示",
+                content: "请输入账号或密码！"
+            }
+            this.showPop(tip);
+            return;
+        }
+
+        cc.log(logindata);
     },
 
     showPop: function(data,func){
@@ -183,5 +232,16 @@ cc.Class({
                 self._customPop.getComponent("CustomPop").show(data,func);
             });
         }
-    }
+    },
+
+    onCloseClicked: function(){
+        this.loginNode.active     = false;
+        this.chooseNode.active    = true;
+        this.passwordEdit.string  = "";
+        this.passwordEdit2.string = "";
+        this.nameEdit.string      = "";
+        this.passwordTip.string   = "";
+        this.passwordTip2.string  = "";
+        this.nameTip.string       = "";
+    },
 });
