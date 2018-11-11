@@ -45,7 +45,7 @@ cc.Class({
 
         GameManager.SoundManager.setEffectOn(isEffectOn);
         GameManager.SoundManager.setMusicOn(isMusicOn);
-        GameManager.SoundManager.playMusic("背景乐_01");
+        // GameManager.SoundManager.playMusic("背景乐_01");
 
         var self = this;
 
@@ -89,7 +89,7 @@ cc.Class({
             GameManager.DataManager.userInfo.gold     = data["gold"];
             GameManager.DataManager.userInfo.diamond  = data["diamond"];
             GameManager.DataManager.userInfo.gunIndex = data["gunIndex"];
-            GameManager.DataManager.userInfo.userID   = data["userID"];
+            GameManager.DataManager.userInfo.userID   = data["userName"];
             GameManager.DataManager.userInfo.password = data["password"];
             GameManager.DataManager.saveUserInfo();
 
@@ -137,8 +137,15 @@ cc.Class({
     },
 
     onPasswordEdit2End: function(){
-        var password = this.passwordEdit2.string;
-        var result = this.checkPasswordIsValid(password);
+        var password1 = this.passwordEdit.string;
+        var password2 = this.passwordEdit2.string;
+
+        if( password1 != password2 ){
+            this.passwordTip2.string = "两次密码不一致";
+            return;
+        }
+
+        var result = this.checkPasswordIsValid(password2);
         this.passwordTip2.string = result;
         cc.log("onPasswordEdit2End");
     },
@@ -201,12 +208,25 @@ cc.Class({
     onRegisterClicked: function(){
         GameManager.SoundManager.playEffect("后台按键音_01");
 
-        var logindata = {
-            userID:   this.nameEdit.string,
+        var password1 = this.passwordEdit.string;
+        var password2 = this.passwordEdit2.string;
+
+        if( password1 != password2 ){
+            var tip = {
+                title: "提示",
+                content: "两次密码不一致！"
+            }
+            this.showPop(tip);
+            return;
+        }
+
+        var registerData = {
+            command:  "register",
+            userName:   this.nameEdit.string,
             password: this.passwordEdit.string
         }
 
-        if( logindata.userID == "" || logindata.password == "" ){
+        if( registerData.userID == "" || registerData.password == "" ){
             var tip = {
                 title: "提示",
                 content: "请输入账号或密码！"
@@ -215,7 +235,21 @@ cc.Class({
             return;
         }
 
-        cc.log(logindata);
+        var self = this;
+        GameManager.HttpManager.register(registerData,function(data){
+            var info = {
+                title: "提示",
+                content: data,
+            }
+            self.showPop(info);
+        },function(data){
+            var info = {
+                title: "提示",
+                content: data,
+            }
+            self.showPop(info);
+        });
+        
     },
 
     showPop: function(data,func){

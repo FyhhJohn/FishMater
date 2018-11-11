@@ -1,4 +1,4 @@
-const HTTP_SERVER = "http://localhost:8080/user.php";
+const HTTP_SERVER = "http://localhost:80/user.php";
 
 cc.Class({
     name: 'HttpManager',
@@ -11,49 +11,33 @@ cc.Class({
         xhr.open("post",HTTP_SERVER);
         xhr.setRequestHeader("Content-Type","application/json;charset=UTF-8");
         xhr.onreadystatechange = function () {  
-            var data = xhr.responseText;
+            var responseText = xhr.responseText;
             if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status <300) ) {  
-                cc.log("receive:"+data);
-                callback(data);
+                cc.log("receive:"+responseText);
+                callback(JSON.parse(responseText));
             } 
         };  
         cc.log("send:"+JSON.stringify(data));
         xhr.send(JSON.stringify(data));
     },
 
-    // onLoginIn: function(data,cbSuccess,cbFail){
-    //     var url = "Config/userInfo";
-    //     cc.loader.loadRes( url, function( err, res){
-    //         if(err){
-    //             cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
-    //             if( cbFail ){
-    //                 cbFail();
-    //             }
-    //             return;
-    //         }
-            
-    //         var result = JSON.parse(JSON.stringify(res));
-    //         cc.log( result );
-    //         if( result.userID == data.userID && result.password == data.password ){
-    //             if( cbSuccess ){
-    //                 cbSuccess(result);
-    //             }
-    //         }else{
-    //             result = "昵称或密码错误！";
-    //             if( cbFail ){
-    //                 cbFail(result);
-    //             }
-    //         }
-    //     });
-    // },
-
     login: function(data,cbSuccess,cbFail){
         this.send(data, function(data){
-
+            if( data["result"] == 0 ){
+                cbSuccess(data.data);
+            }else{
+                cbFail(data.data);
+            }
         });
     },
 
     register: function(data,cbSuccess,cbFail){
-        this.send(data,cbSuccess,cbFail);
+        this.send(data, function(data){
+            if( data["result"] == 0 ){
+                cbSuccess(data.data);
+            }else{
+                cbFail(data.data);
+            }
+        });
     },
 });
