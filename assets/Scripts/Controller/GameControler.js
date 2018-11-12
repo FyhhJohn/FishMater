@@ -31,6 +31,7 @@ cc.Class({
         _shoot: false,
         _shootTime: 0,
         _touchEvent: null,
+        _saveTime: 0,
     },
 
     ctor: function(){
@@ -88,6 +89,12 @@ cc.Class({
         if( this._shoot && this._shootTime > 0.2){
             this.addBullet(this._touchEvent);
             this._shootTime = 0;
+        }
+
+        this._saveTime += dt;
+        if( this._saveTime >= 5 ){
+            this.saveInfo();
+            this._saveTime = 0;
         }
     },
 
@@ -242,14 +249,19 @@ cc.Class({
         // }
         // this.time2Label.string = this._goldTime2+"s";
         this._goldTime2--;
-
-        this.saveInfo();
     },
 
     saveInfo: function(){
         UserDefault.setInt("gold",GameManager.DataManager.userInfo.gold);
         UserDefault.setInt("diamond",GameManager.DataManager.userInfo.diamond);
         UserDefault.setInt("gunIndex",GameManager.DataManager.userInfo.gunIndex);
+        var data = {
+            userName: GameManager.DataManager.userInfo.userName,
+            gold:     GameManager.DataManager.userInfo.gold,
+            diamond:  GameManager.DataManager.userInfo.diamond,
+            gunIndex: GameManager.DataManager.userInfo.gunIndex
+        }
+        GameManager.HttpManager.updateInfo(data);
     },
 
     //升级炮威力

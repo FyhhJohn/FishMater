@@ -5,6 +5,7 @@ cc.Class({
 
     properties: {
         bulletPrefab: [cc.Prefab],
+        gunIndex: 0,
         _GunInfo: null,
     },
 
@@ -41,12 +42,27 @@ cc.Class({
             content: `是否消耗${self._GunInfo.upGrageCost}钻石升级炮台威力?`
         },function(){
             if( userInfo.diamond >= self._GunInfo.upGrageCost ){
-                GameManager.GameControler.upgradeGun();
-                GameManager.GameControler.updateDiamondValue(-1*self._GunInfo.upGrageCost);
+                
+                var data = {
+                    gunName: self.node.name,
+                    userName: GameManager.DataManager.userInfo.userName,
+                    gunIndex: self.gunIndex,
+                }
 
-                GameManager.MainScene.showPop({
-                    title: "提示",
-                    content: `您的炮台升级成功`
+                GameManager.HttpManager.upGradeGun(data,function(data){
+
+                    GameManager.GameControler.upgradeGun();
+                    GameManager.GameControler.updateDiamondValue(-1*self._GunInfo.upGrageCost);
+                    GameManager.MainScene.showPop({
+                        title: "提示",
+                        content: `您的炮台升级成功`
+                    });
+
+                },function(data){
+                    GameManager.MainScene.showPop({
+                        title: "提示",
+                        content: data
+                    });
                 });
             }else{
                 GameManager.MainScene.showPop({

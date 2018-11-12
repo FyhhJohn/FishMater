@@ -10,14 +10,15 @@ cc.Class({
 
     ctor(){
         this.userInfo = {
+            token: null,
             gold: 0,
             diamond: 0,
             gunIndex: 0,
-            userID: null,
+            userName: null,
             password: null,
         }
 
-        this.userInfo.userID = UserDefault.getString("userID");
+        this.userInfo.userName = UserDefault.getString("userName");
         this.userInfo.password = UserDefault.getString("password");
 
         this.parseShopConfig();
@@ -87,7 +88,7 @@ cc.Class({
     },
 
     saveUserInfo: function(){
-        UserDefault.setString("userID",   this.userInfo.userID  );
+        UserDefault.setString("userName", this.userInfo.userName);
         UserDefault.setString("password", this.userInfo.password);
     },
 });

@@ -277,7 +277,8 @@
     "_bulletIndex": 0,
     "_shoot": false,
     "_shootTime": 0,
-    "_touchEvent": null
+    "_touchEvent": null,
+    "_saveTime": 0
   },
   {
     "__type__": "cc.Node",
@@ -3286,6 +3287,7 @@
         "__uuid__": "527fded2-0199-4d1d-8f1f-54d64f03e671"
       }
     ],
+    "gunIndex": 1,
     "_GunInfo": null
   },
   {
@@ -4021,6 +4023,7 @@
         "__uuid__": "5b98f107-6ad0-43d5-b148-ede4b104112d"
       }
     ],
+    "gunIndex": 2,
     "_GunInfo": null
   },
   {
@@ -4567,6 +4570,7 @@
         "__uuid__": "9a1919e5-0dba-4322-bc02-0d47188cf9af"
       }
     ],
+    "gunIndex": 3,
     "_GunInfo": null
   },
   {
@@ -5300,6 +5304,7 @@
         "__uuid__": "fe9e00f7-5cbf-4eaf-827b-344de398f2e2"
       }
     ],
+    "gunIndex": 4,
     "_GunInfo": null
   },
   {
@@ -5738,6 +5743,7 @@
         "__uuid__": "ba8aa4b4-092b-464f-afe3-2be61922e09c"
       }
     ],
+    "gunIndex": 0,
     "_GunInfo": null
   },
   {

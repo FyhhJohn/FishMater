@@ -78,7 +78,8 @@ cc.Class({
             clickEventHandler.customEventData = {
                 type: diamondConfig[i].costType, //1-钻石 2-金币
                 cost: diamondConfig[i].cost,
-                num: diamondConfig[i].num,
+                num:  diamondConfig[i].num,
+                name: diamondConfig[i].name,
             };
 
             btn.clickEvents.push(clickEventHandler);
@@ -103,7 +104,8 @@ cc.Class({
             clickEventHandler.customEventData = {
                 type: goldConfig[j].costType, //1-钻石 2-金币
                 cost: goldConfig[j].cost,
-                num: goldConfig[j].num,
+                num:  goldConfig[j].num,
+                name: goldConfig[j].name,
             };
 
             btn.clickEvents.push(clickEventHandler);
@@ -118,7 +120,25 @@ cc.Class({
         //TODO 
         //buyItem
         if( customEventData.type == ItemType.type_gold ){
-            GameManager.GameControler.updateGoldValue(customEventData.num);
+            var data = {
+                itemName: customEventData.name,
+                userName: GameManager.DataManager.userInfo.userName,
+            }
+            GameManager.HttpManager.buyItem(data,function(data){
+                var gold = data.gold;
+                var diamond = data.diamond;
+                GameManager.GameControler.updateGoldValue(customEventData.num);
+                GameManager.GameControler.updateDiamondValue(-customEventData.num);
+                GameManager.MainScene.showPop({
+                    title: "提示",
+                    content: '购买成功',
+                });
+            },function(data){
+                GameManager.MainScene.showPop({
+                    title: "提示",
+                    content: data,
+                });
+            });
         }else{
             GameManager.GameControler.updateDiamondValue(customEventData.num);
         }

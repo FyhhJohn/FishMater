@@ -56,10 +56,10 @@ cc.Class({
 
         var userInfo = GameManager.DataManager.getUserInfo();
         cc.log(userInfo);
-        if( (!userInfo.userID || userInfo.userID == "null" || userInfo.userID == "" ) || (!userInfo.password || userInfo.password == "null" || userInfo.password == "" ) ){
+        if( (!userInfo.userName || userInfo.userName == "null" || userInfo.userName == "" ) || (!userInfo.password || userInfo.password == "null" || userInfo.password == "" ) ){
             this.chooseNode.active = true;
         }else{
-            this.nameEdit.string     = userInfo.userID;
+            this.nameEdit.string     = userInfo.userName;
             this.passwordEdit.string = userInfo.password;
 
             this.onLoginIn();
@@ -68,12 +68,11 @@ cc.Class({
 
     onLoginIn: function(){
         var logindata = {
-            command: "login",
-            userName:   this.nameEdit.string,
+            userName: this.nameEdit.string,
             password: this.passwordEdit.string
         }
 
-        if( logindata.userID == "" || logindata.password == "" ){
+        if( logindata.userName == "" || logindata.password == "" ){
             var tip = {
                 title: "提示",
                 content: "请输入账号或密码！"
@@ -86,10 +85,10 @@ cc.Class({
         var self = this;
         GameManager.HttpManager.login(logindata,(data)=>{
 
-            GameManager.DataManager.userInfo.gold     = data["gold"];
-            GameManager.DataManager.userInfo.diamond  = data["diamond"];
-            GameManager.DataManager.userInfo.gunIndex = data["gunIndex"];
-            GameManager.DataManager.userInfo.userID   = data["userName"];
+            GameManager.DataManager.userInfo.gold     = parseInt(data["gold"]);
+            GameManager.DataManager.userInfo.diamond  = parseInt(data["diamond"]);
+            GameManager.DataManager.userInfo.gunIndex = parseInt(data["gunIndex"]);
+            GameManager.DataManager.userInfo.userName = data["userName"];
             GameManager.DataManager.userInfo.password = data["password"];
             GameManager.DataManager.saveUserInfo();
 
@@ -137,14 +136,7 @@ cc.Class({
     },
 
     onPasswordEdit2End: function(){
-        var password1 = this.passwordEdit.string;
         var password2 = this.passwordEdit2.string;
-
-        if( password1 != password2 ){
-            this.passwordTip2.string = "两次密码不一致";
-            return;
-        }
-
         var result = this.checkPasswordIsValid(password2);
         this.passwordTip2.string = result;
         cc.log("onPasswordEdit2End");
@@ -211,6 +203,20 @@ cc.Class({
         var password1 = this.passwordEdit.string;
         var password2 = this.passwordEdit2.string;
 
+        var registerData = {
+            userName: this.nameEdit.string,
+            password: password1
+        }
+
+        if( registerData.userName == "" || registerData.password == "" || password2 == "" ){
+            var tip = {
+                title: "提示",
+                content: "请输入账号或密码！"
+            }
+            this.showPop(tip);
+            return;
+        }
+
         if( password1 != password2 ){
             var tip = {
                 title: "提示",
@@ -220,28 +226,16 @@ cc.Class({
             return;
         }
 
-        var registerData = {
-            command:  "register",
-            userName:   this.nameEdit.string,
-            password: this.passwordEdit.string
-        }
-
-        if( registerData.userID == "" || registerData.password == "" ){
-            var tip = {
-                title: "提示",
-                content: "请输入账号或密码！"
-            }
-            this.showPop(tip);
-            return;
-        }
-
         var self = this;
         GameManager.HttpManager.register(registerData,function(data){
-            var info = {
-                title: "提示",
-                content: data,
-            }
-            self.showPop(info);
+            GameManager.DataManager.userInfo.gold     = parseInt(data["gold"]);
+            GameManager.DataManager.userInfo.diamond  = parseInt(data["diamond"]);
+            GameManager.DataManager.userInfo.gunIndex = parseInt(data["gunIndex"]);
+            GameManager.DataManager.userInfo.userName = data["userName"];
+            GameManager.DataManager.userInfo.password = data["password"];
+            GameManager.DataManager.saveUserInfo();
+
+            self.loginNode.active = false;
         },function(data){
             var info = {
                 title: "提示",

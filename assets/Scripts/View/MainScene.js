@@ -78,7 +78,7 @@ cc.Class({
                 }
                 cc.log("bbbbbbbbb");
                 self._customPop = cc.instantiate(prefab);
-                self._customPop.parent = self.node;
+                self.node.addChild(self._customPop,10);
                 self._customPop.getComponent("CustomPop").show(data,func);
             });
         }

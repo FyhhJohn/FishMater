@@ -1,4 +1,4 @@
-const HTTP_SERVER = "http://localhost:80/user.php";
+const HTTP_SERVER = "http://localhost:8080/user.php";
 
 cc.Class({
     name: 'HttpManager',
@@ -14,7 +14,8 @@ cc.Class({
             var responseText = xhr.responseText;
             if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status <300) ) {  
                 cc.log("receive:"+responseText);
-                callback(JSON.parse(responseText));
+                var json_data = JSON.parse(responseText);
+                callback(json_data);
             } 
         };  
         cc.log("send:"+JSON.stringify(data));
@@ -22,21 +23,81 @@ cc.Class({
     },
 
     login: function(data,cbSuccess,cbFail){
-        this.send(data, function(data){
+        var sendData = {
+            command: "login",
+            userName: data.userName,
+            password: data.password,
+        }
+        this.send(sendData, function(data){
             if( data["result"] == 0 ){
-                cbSuccess(data.data);
+                if(cbSuccess) cbSuccess(data.data);
             }else{
-                cbFail(data.data);
+                if(cbFail) cbFail(data.data);
             }
         });
     },
 
     register: function(data,cbSuccess,cbFail){
-        this.send(data, function(data){
+        var sendData = {
+            command:  "register",
+            userName: data.userName,
+            password: data.password,
+        }
+        this.send(sendData, function(data){
             if( data["result"] == 0 ){
-                cbSuccess(data.data);
+                if(cbSuccess) cbSuccess(data.data);
             }else{
-                cbFail(data.data);
+                if(cbFail) cbFail(data.data);
+            }
+        });
+    },
+
+    updateInfo: function(data,cbSuccess,cbFail){
+        var sendData = {
+            command: "updateInfo",
+            userName: data.userName,
+            gold:     data.gold,
+            diamond:  data.diamond,
+            gunIndex: data.gunIndex,
+        }
+        this.send(sendData, function(data){
+            if( data["result"] == 0 ){
+                if(cbSuccess) cbSuccess(data.data);
+            }else{
+                if(cbFail) cbFail(data.data);
+            }
+        });
+    },
+
+    buyItem: function(data,cbSuccess,cbFail){
+        var sendData = {
+            command: "buyGold",
+            userName: data.userName,
+            itemName: data.itemName,
+        }
+
+        this.send(sendData, function(data){
+            if( data["result"] == 0 ){
+                if(cbSuccess) cbSuccess(data.data);
+            }else{
+                if(cbFail) cbFail(data.data);
+            }
+        });
+    },
+
+    upGradeGun: function(data,cbSuccess,cbFail){
+        var sendData = {
+            command: "upGradeGun",
+            userName: data.userName,
+            gunIndex: data.gunIndex,
+            gunName:  data.gunName,
+        }
+
+        this.send(sendData, function(data){
+            if( data["result"] == 0 ){
+                if(cbSuccess) cbSuccess(data.data);
+            }else{
+                if(cbFail) cbFail(data.data);
             }
         });
     },
