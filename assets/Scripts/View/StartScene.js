@@ -1,6 +1,3 @@
-var DataManager = require("DataManager");
-var SoundManager = require("SoundManager");
-var HttpManager = require("HttpManager");
 
 cc.Class({
     extends: cc.Component,
@@ -36,15 +33,7 @@ cc.Class({
     },
 
     onLoad: function(){
-        if( !GameManager.SoundManager ){
-            GameManager.SoundManager = new SoundManager(); 
-        }
-        if( !GameManager.DataManager ){
-            GameManager.DataManager = new DataManager();
-        }
-        if( !GameManager.HttpManager ){
-            GameManager.HttpManager = new HttpManager();
-        }
+        cc.log("startScene");
 
         var isEffectOn = UserDefault.getBool("effectOn");
         var isMusicOn  = UserDefault.getBool("musicOn");
@@ -57,9 +46,9 @@ cc.Class({
 
         this.loginNode.active = false;
         this.chooseNode.active = false;
-
         this.nameTip.node.active = false;
-
+        
+        GameManager.DataManager.init();
         var userInfo = GameManager.DataManager.getUserInfo();
 
         if( GameManager.DataManager.isLogin ){

@@ -1,6 +1,8 @@
 
 cc.Class({
 
+    name: "DataManager",
+
     properties: {
         userInfo:   null,
         shopConfig: null,
@@ -19,14 +21,16 @@ cc.Class({
             password: null,
         }
 
+        cc.log("DataManager");
+    },
+    
+    init: function(){
         this.userInfo.userName = UserDefault.getString("userName");
         this.userInfo.password = UserDefault.getString("password");
-
+    
         this.parseShopConfig();
         this.parseFishConfig();
         this.parseGunConfig();
-
-        Utils.randomUserName(10);
     },
 
     //解析商城数据
@@ -40,6 +44,7 @@ cc.Class({
             
             var result = JSON.parse(JSON.stringify(res));
             self.shopConfig = result;
+            cc.log(self.shopConfig);
         });
     },
 
@@ -54,7 +59,7 @@ cc.Class({
             
             var result = JSON.parse(JSON.stringify(res));
             self.fishConfig = result;
-            cc.log(result);
+            cc.log(self.fishConfig);
         });
     },
 
@@ -68,7 +73,7 @@ cc.Class({
             
             var result = JSON.parse(JSON.stringify(res));
             self.gunConfig = result;
-            cc.log(result);
+            cc.log(self.gunConfig);
         });
     },
 

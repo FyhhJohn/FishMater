@@ -1,8 +1,4 @@
-var UserDefault = cc.Class( {
-
-    ctor(){
-    },
-
+window.UserDefault = {
     setBool:function(_key,_value){
         cc.sys.localStorage.setItem(_key,_value.toString())
     },
@@ -34,6 +30,4 @@ var UserDefault = cc.Class( {
     getItem:function(_key,_value){
         return JSON.parse(cc.sys.localStorage.getItem(_key,_value));
     },
-});
-
-window.UserDefault = new UserDefault();
+};

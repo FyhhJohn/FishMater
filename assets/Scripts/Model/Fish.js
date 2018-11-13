@@ -29,8 +29,6 @@ cc.Class({
         this.gold  = fishConfig.gold;
         this.speed = fishConfig.speed;
         this.num   = fishConfig.num;
-
-        cc.log("initData "+ this.maxbloodValue + " " + this.bloodValue);
     },
 
     update: function(dt){
@@ -52,7 +50,6 @@ cc.Class({
     //受到攻击
     attacked: function(damage){
         this.bloodValue -= damage;
-        cc.log("maxbloodValue " + this.maxbloodValue + " bloodValue = "+this.bloodValue + "  damage = "+damage);
         if( this.bloodValue <= 0 ){
             var die = cc.instantiate(this.diePrefab);
             die.addComponent("ef_AutoClear");

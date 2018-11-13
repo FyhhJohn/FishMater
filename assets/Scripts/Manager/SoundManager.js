@@ -1,6 +1,8 @@
 
 cc.Class({
 
+    name: "SoundManager",
+
     properties: {
         _musicId: null,
         _effectId: null,
