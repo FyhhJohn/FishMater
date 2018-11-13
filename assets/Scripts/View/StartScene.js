@@ -48,12 +48,12 @@ cc.Class({
         this.chooseNode.active = false;
         this.nameTip.node.active = false;
         
-        GameManager.DataManager.init();
-        var userInfo = GameManager.DataManager.getUserInfo();
-
+        
         if( GameManager.DataManager.isLogin ){
             return;
         }
+        GameManager.DataManager.init();
+        var userInfo = GameManager.DataManager.getUserInfo();
 
         if( (!userInfo.userName || userInfo.userName == "null" || userInfo.userName == "" ) || (!userInfo.password || userInfo.password == "null" || userInfo.password == "" ) ){
             this.chooseNode.active = true;
