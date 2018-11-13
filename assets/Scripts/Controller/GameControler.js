@@ -92,7 +92,7 @@ cc.Class({
         }
 
         this._saveTime += dt;
-        if( this._saveTime >= 5 ){
+        if( this._saveTime >= 10 ){
             this.saveInfo();
             this._saveTime = 0;
         }
@@ -268,7 +268,7 @@ cc.Class({
     onButtonP: function(){
         var Gun = this.GunList[this._gunIndex].getComponent("Gun");
         var bulletList = Gun.bulletPrefab;
-        if( this._bulletIndex < bulletList.length-2 ){
+        if( this._bulletIndex <= bulletList.length-2 ){
             this._bulletIndex++;
         }
 

@@ -143,7 +143,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "damageValue": 920,
+    "damageValue": 960,
     "moveSpeed": 400,
     "webPrefab": {
       "__uuid__": "72d6cce9-0aa3-451a-924f-957595fd93c1"
@@ -155,9 +155,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "bfb35dd6-1010-43c4-a6ab-8bb246fcd7a0"
+      "__uuid__": "e9d8d126-6dfe-4a07-b48b-dccb6a097f16"
     },
-    "fileId": "d3sOUG67xEs6DnGe8COUHd",
+    "fileId": "95u4okKKRMVZopIsTzRDN3",
     "sync": false
   }
 ]

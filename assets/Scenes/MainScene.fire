@@ -277,8 +277,7 @@
     "_bulletIndex": 0,
     "_shoot": false,
     "_shootTime": 0,
-    "_touchEvent": null,
-    "_saveTime": 0
+    "_touchEvent": null
   },
   {
     "__type__": "cc.Node",

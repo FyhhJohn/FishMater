@@ -40,6 +40,7 @@ cc.Class({
         cc.loader.loadRes( url, function( err, res){
             if(err){
                 cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
+                return;
             }
             
             var result = JSON.parse(JSON.stringify(res));
@@ -55,6 +56,7 @@ cc.Class({
         cc.loader.loadRes( url, function( err, res){
             if(err){
                 cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
+                return;
             }
             
             var result = JSON.parse(JSON.stringify(res));
@@ -69,6 +71,7 @@ cc.Class({
         cc.loader.loadRes( url, function( err, res){
             if(err){
                 cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
+                return;
             }
             
             var result = JSON.parse(JSON.stringify(res));

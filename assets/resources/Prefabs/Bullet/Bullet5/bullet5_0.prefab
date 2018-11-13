@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bullet5_5",
+    "_name": "bullet5_0",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -143,7 +143,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "damageValue": 1000,
+    "damageValue": 840,
     "moveSpeed": 400,
     "webPrefab": {
       "__uuid__": "72d6cce9-0aa3-451a-924f-957595fd93c1"
@@ -155,9 +155,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "fe9e00f7-5cbf-4eaf-827b-344de398f2e2"
+      "__uuid__": "a5ad53e9-a21f-4645-a7c8-d80617c4316c"
     },
-    "fileId": "f8hTQIERBFabS3gdr479U0",
+    "fileId": "1eqNXJjcNFs50urJ4aesL7",
     "sync": false
   }
 ]

@@ -124,6 +124,6 @@ cc.Class({
             }else{
                 if(cbFail) cbFail(data.data);
             }
-        }.true);
+        },true);
     },
 });
