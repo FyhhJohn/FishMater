@@ -6,4 +6,5 @@ window.GameManager = {
     DataManager:   null,
     SoundManager:  null,
     HttpManager:   null,
+    LoadingUI:     null,
 }

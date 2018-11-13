@@ -23,7 +23,7 @@ cc.Class({
         buttonP: cc.Button,
         buttonM: cc.Button,
 
-        _goldTime1: 99,
+        _goldTime1: 60,
         _goldTime2: 240,
 
         _gunIndex: 0,
@@ -35,7 +35,7 @@ cc.Class({
     },
 
     ctor: function(){
-        this._goldTime1 = 99;
+        this._goldTime1 = 60;
         this._goldTime2 = 20;
         this._gunIndex = 0;
         this._bulletIndex = 0;
@@ -231,7 +231,7 @@ cc.Class({
 
     updateTime: function(){
         if( this._goldTime1 < 0 ){
-            this._goldTime1 = 99;
+            this._goldTime1 = 60;
             this.updateGoldValue(100);
         }
         
@@ -268,7 +268,7 @@ cc.Class({
     onButtonP: function(){
         var Gun = this.GunList[this._gunIndex].getComponent("Gun");
         var bulletList = Gun.bulletPrefab;
-        if( this._bulletIndex < bulletList.length-1 ){
+        if( this._bulletIndex < bulletList.length-2 ){
             this._bulletIndex++;
         }
 

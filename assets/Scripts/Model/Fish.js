@@ -26,9 +26,11 @@ cc.Class({
         this.maxbloodValue = fishConfig.maxbloodValue;
         this.bloodValue = fishConfig.maxbloodValue;
 
-        this.gold = fishConfig.gold;
+        this.gold  = fishConfig.gold;
         this.speed = fishConfig.speed;
-        this.num = fishConfig.num;
+        this.num   = fishConfig.num;
+
+        cc.log("initData "+ this.maxbloodValue + " " + this.bloodValue);
     },
 
     update: function(dt){
@@ -50,6 +52,7 @@ cc.Class({
     //受到攻击
     attacked: function(damage){
         this.bloodValue -= damage;
+        cc.log("maxbloodValue " + this.maxbloodValue + " bloodValue = "+this.bloodValue + "  damage = "+damage);
         if( this.bloodValue <= 0 ){
             var die = cc.instantiate(this.diePrefab);
             die.addComponent("ef_AutoClear");
@@ -62,12 +65,6 @@ cc.Class({
             GameManager.FishFactory.node.getComponent("FishFactory").putFish(this.node,this.fishIndex);
 
             GameManager.GameControler.updateGoldValue(this.gold,this.node.position);
-        // }else{
-        //     if( !this._bloodProgressBar ){
-        //         this.addBlood();
-        //     }else{
-        //         this.updateBlood();   
-        //     }
         }
     },
 

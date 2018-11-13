@@ -6,6 +6,7 @@ cc.Class({
         shopConfig: null,
         fishConfig: null,
         gunConfig:  null,
+        isLogin:    false,
     },
 
     ctor(){

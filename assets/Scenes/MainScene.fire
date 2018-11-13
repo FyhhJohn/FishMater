@@ -271,7 +271,7 @@
     "buttonM": {
       "__id__": 61
     },
-    "_goldTime1": 99,
+    "_goldTime1": 60,
     "_goldTime2": 20,
     "_gunIndex": 0,
     "_bulletIndex": 0,
@@ -2350,7 +2350,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 4,
+      "x": -22,
       "y": -328
     },
     "_skewX": 0,
@@ -2405,7 +2405,7 @@
     "_scaleY": 0.6,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 66.1,
+      "x": 115,
       "y": 0
     },
     "_skewX": 0,
@@ -2563,7 +2563,7 @@
     "_scaleY": 0.6,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -121.2,
+      "x": -115,
       "y": 0
     },
     "_skewX": 0,
@@ -6222,7 +6222,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "9 9",
+    "_N$string": "6 0",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",

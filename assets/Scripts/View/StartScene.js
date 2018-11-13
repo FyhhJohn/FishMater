@@ -36,9 +36,15 @@ cc.Class({
     },
 
     onLoad: function(){
-        GameManager.SoundManager = new SoundManager(); 
-        GameManager.DataManager = new DataManager();
-        GameManager.HttpManager = new HttpManager();
+        if( !GameManager.SoundManager ){
+            GameManager.SoundManager = new SoundManager(); 
+        }
+        if( !GameManager.DataManager ){
+            GameManager.DataManager = new DataManager();
+        }
+        if( !GameManager.HttpManager ){
+            GameManager.HttpManager = new HttpManager();
+        }
 
         var isEffectOn = UserDefault.getBool("effectOn");
         var isMusicOn  = UserDefault.getBool("musicOn");
@@ -55,13 +61,18 @@ cc.Class({
         this.nameTip.node.active = false;
 
         var userInfo = GameManager.DataManager.getUserInfo();
-        cc.log(userInfo);
+
+        if( GameManager.DataManager.isLogin ){
+            return;
+        }
+
         if( (!userInfo.userName || userInfo.userName == "null" || userInfo.userName == "" ) || (!userInfo.password || userInfo.password == "null" || userInfo.password == "" ) ){
             this.chooseNode.active = true;
         }else{
+            this.onChooseLoginClicked();
             this.nameEdit.string     = userInfo.userName;
             this.passwordEdit.string = userInfo.password;
-
+            
             this.onLoginIn();
         }
     },
@@ -81,6 +92,15 @@ cc.Class({
             return;
         }
 
+        if( logindata.userName.length < 4 || logindata.password.length < 8){
+            var tip = {
+                title: "提示",
+                content: "账号或密码错误！"
+            }
+            this.showPop(tip);
+            return;
+        }
+
         cc.log(logindata);
         var self = this;
         GameManager.HttpManager.login(logindata,(data)=>{
@@ -93,6 +113,7 @@ cc.Class({
             GameManager.DataManager.saveUserInfo();
 
             self.loginNode.active = false;
+            GameManager.DataManager.isLogin = true;
         },function(data){
             var info = {
                 title: "提示",
@@ -157,11 +178,19 @@ cc.Class({
     },
 
     onNewGame: function(){
+        if (GameManager.LoadingUI){
+            GameManager.LoadingUI.destroy();
+            GameManager.LoadingUI = null;
+        }
         cc.director.loadScene("MainScene");
         GameManager.SoundManager.playEffect("后台按键音_01");
     },
 
     onOldGame: function(){
+        if (GameManager.LoadingUI){
+            GameManager.LoadingUI.destroy();
+            GameManager.LoadingUI = null;
+        }
         cc.director.loadScene("MainScene");
         GameManager.SoundManager.playEffect("后台按键音_01");
     },
@@ -226,6 +255,15 @@ cc.Class({
             return;
         }
 
+        if( registerData.userName.length < 4 || registerData.password.length < 8 ){
+            var tip = {
+                title: "提示",
+                content: "账号或密码错误！"
+            }
+            this.showPop(tip);
+            return;
+        }
+
         var self = this;
         GameManager.HttpManager.register(registerData,function(data){
             GameManager.DataManager.userInfo.gold     = parseInt(data["gold"]);
@@ -235,7 +273,12 @@ cc.Class({
             GameManager.DataManager.userInfo.password = data["password"];
             GameManager.DataManager.saveUserInfo();
 
-            self.loginNode.active = false;
+            self.onChooseLoginClicked();
+            var info = {
+                title: "提示",
+                content: "注册成功",
+            }
+            self.showPop(info);
         },function(data){
             var info = {
                 title: "提示",

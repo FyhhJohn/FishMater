@@ -60,6 +60,10 @@ cc.Class({
     },
 
     backClicked: function(){
+        if (GameManager.LoadingUI){
+            GameManager.LoadingUI.destroy();
+            GameManager.LoadingUI = null;
+        }
         GameManager.SoundManager.playEffect("后台按键音_01");
 
         GameManager.FishFactory.node.getComponent("FishFactory").clearFishPool();

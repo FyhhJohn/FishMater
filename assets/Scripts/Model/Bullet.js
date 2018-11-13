@@ -21,13 +21,14 @@ cc.Class({
         if( other.node.group == "border" ){
             self.node.destroy();
         }else if( other.node.group == "fish" ){
+            self.node.destroy();            
+            
             var damageValue =  self.node.getComponent("Bullet").damageValue;
            
             var web = cc.instantiate(this.webPrefab);
             web.getComponent("Web").damageValue = damageValue;
             web.parent = self.node.parent;
             web.position = self.node.position;
-            self.node.destroy();            
             
             GameManager.SoundManager.playEffect("FX_开网_01");
         }
