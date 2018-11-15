@@ -59,12 +59,12 @@ cc.Class({
     },
 
     onCancelClickCallback: function(){
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
         this.hide();
     },
 
     onOkClickCallback: function(){
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
 
         this.hide();
         if( this._callBack ){

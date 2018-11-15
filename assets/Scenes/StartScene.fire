@@ -2402,12 +2402,12 @@
     "_cascadeOpacityEnabled": true,
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
+      "width": 220,
       "height": 40
     },
     "_rotationX": 0,
@@ -2416,7 +2416,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 27,
+      "x": -43,
       "y": -1
     },
     "_skewX": 0,
@@ -2451,7 +2451,7 @@
     "_N$returnType": 0,
     "_N$inputFlag": 5,
     "_N$inputMode": 6,
-    "_N$fontSize": 29,
+    "_N$fontSize": 24,
     "_N$lineHeight": 40,
     "_N$fontColor": {
       "__type__": "cc.Color",
@@ -2851,12 +2851,12 @@
     "_cascadeOpacityEnabled": true,
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
+      "width": 220,
       "height": 40
     },
     "_rotationX": 0,
@@ -2865,7 +2865,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 27,
+      "x": -43,
       "y": 0
     },
     "_skewX": 0,
@@ -2900,7 +2900,7 @@
     "_N$returnType": 0,
     "_N$inputFlag": 0,
     "_N$inputMode": 2,
-    "_N$fontSize": 29,
+    "_N$fontSize": 24,
     "_N$lineHeight": 40,
     "_N$fontColor": {
       "__type__": "cc.Color",
@@ -3078,12 +3078,12 @@
     "_cascadeOpacityEnabled": true,
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
+      "width": 220,
       "height": 40
     },
     "_rotationX": 0,
@@ -3092,7 +3092,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 27,
+      "x": -43,
       "y": 1
     },
     "_skewX": 0,
@@ -3127,7 +3127,7 @@
     "_N$returnType": 0,
     "_N$inputFlag": 0,
     "_N$inputMode": 2,
-    "_N$fontSize": 29,
+    "_N$fontSize": 24,
     "_N$lineHeight": 40,
     "_N$fontColor": {
       "__type__": "cc.Color",
@@ -4192,7 +4192,7 @@
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 139

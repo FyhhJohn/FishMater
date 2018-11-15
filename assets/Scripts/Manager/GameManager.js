@@ -4,6 +4,7 @@ var HttpManager = require("HttpManager");
 var GameControler = require("GameControler");
 var MainScene = require("MainScene");
 var FishFactory = require("FishFactory");
+var UserDefault = require("UserDefault");
 
 var GameManager = cc.Class({
     properties:{
@@ -26,4 +27,5 @@ var GameManager = cc.Class({
     },
 });
 
+window.UserDefault = new UserDefault();
 window.GameManager = new GameManager();

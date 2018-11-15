@@ -72,24 +72,25 @@ cc.Class({
     },
 
     onTouchStart: function(event){
-        this._shoot = true;
-        this._touchEvent = event;
+        // this._shoot = true;
+        // this._touchEvent = event;
+        this.addBullet(event);
     },
 
     onTouchMove: function(event){
-        this._touchEvent = event;
+        // this._touchEvent = event;
     },
 
     onTouchEnd: function(event){
-        this._shoot = false;
+        // this._shoot = false;
     },
 
     update: function(dt){
-        this._shootTime += dt;
-        if( this._shoot && this._shootTime > 0.2){
-            this.addBullet(this._touchEvent);
-            this._shootTime = 0;
-        }
+        // this._shootTime += dt;
+        // if( this._shoot && this._shootTime > 0.5){
+        //     this.addBullet(this._touchEvent);
+        //     this._shootTime = 0;
+        // }
 
         this._saveTime += dt;
         if( this._saveTime >= 10 ){
@@ -125,7 +126,7 @@ cc.Class({
             return;
         }
 
-        GameManager.SoundManager.playEffect("FX_发炮_01");
+        GameManager.SoundManager.playEffect("FX_Fire_01");
 
         this.updateGoldValue(-cost);
 
@@ -138,7 +139,7 @@ cc.Class({
         var gunPos = gun.position;
         gunPos = gun.convertToWorldSpaceAR(cc.v2(0,0));
         gunPos = this.GenPanel.convertToNodeSpaceAR(gunPos);
-        var vec = desPos.sub(gunPos);
+        var vec = cc.v2(desPos.x - gunPos.x, desPos.y - gunPos.y);
         vec = vec.normalize();
 
         //点击位置与炮位置的连线与y轴的夹角
@@ -166,10 +167,10 @@ cc.Class({
         var effectName = "";
         if( goldValue < 1000 ){
             goldIndex = 0;
-            effectName = "FX_银币_01";
+            effectName = "FX_silverGold_01";
         }else{
             goldIndex = 2;
-            effectName = "FX_金币";
+            effectName = "FX_gold";
         }
 
         if( pos ){
@@ -275,7 +276,7 @@ cc.Class({
         this.updateButton();
         this.updateCost();
 
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
     },
 
     //降低炮威力
@@ -289,7 +290,7 @@ cc.Class({
         this.updateButton();
         this.updateCost();
 
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
 
     },
 
@@ -314,6 +315,6 @@ cc.Class({
         this.updateButton();
         this.updateCost();
 
-        GameManager.SoundManager.playEffect("FX_换炮_01");
+        GameManager.SoundManager.playEffect("FX_changeGun_01");
     },
 });

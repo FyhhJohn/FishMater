@@ -40,7 +40,7 @@ cc.Class({
 
         GameManager.SoundManager.setEffectOn(isEffectOn);
         GameManager.SoundManager.setMusicOn(isMusicOn);
-        // GameManager.SoundManager.playMusic("背景乐_01");
+        // GameManager.SoundManager.playMusic("background_01");
 
         var self = this;
 
@@ -172,7 +172,7 @@ cc.Class({
             GameManager.LoadingUI = null;
         }
         cc.director.loadScene("MainScene");
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
     },
 
     onOldGame: function(){
@@ -181,7 +181,7 @@ cc.Class({
             GameManager.LoadingUI = null;
         }
         cc.director.loadScene("MainScene");
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
     },
 
     onDestroy: function(){
@@ -211,12 +211,12 @@ cc.Class({
     },
 
     onLoginClicked: function(){
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
         this.onLoginIn();
     },
 
     onRegisterClicked: function(){
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
 
         var password1 = this.passwordEdit.string;
         var password2 = this.passwordEdit2.string;

@@ -20,7 +20,7 @@ cc.Class({
         var _toggle = toggle.node.getComponent(cc.Toggle);
         GameManager.SoundManager.setEffectOn(_toggle.isChecked);
 
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
 
     },
 
@@ -28,7 +28,7 @@ cc.Class({
         var _toggle = toggle.node.getComponent(cc.Toggle);
         GameManager.SoundManager.setMusicOn(_toggle.isChecked);
         
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
 
     },
 
@@ -64,7 +64,7 @@ cc.Class({
             GameManager.LoadingUI.destroy();
             GameManager.LoadingUI = null;
         }
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
 
         GameManager.FishFactory.node.getComponent("FishFactory").clearFishPool();
         GameManager.GameControler.saveInfo();

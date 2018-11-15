@@ -1,4 +1,5 @@
-const HTTP_SERVER = "http://localhost:8080/user.php";
+const HTTP_SERVER = "http://192.168.231.184/user.php";
+// const HTTP_SERVER = "http://192.168.231.82/by/user.php";
 
 cc.Class({
     name: 'HttpManager',

@@ -24,7 +24,7 @@ cc.Class({
     },
 
     onClickCallback: function(target,customEventData){
-        GameManager.SoundManager.playEffect("后台按键音_01");
+        GameManager.SoundManager.playEffect("click_01");
 
         var userInfo = GameManager.DataManager.getUserInfo();
         var self = this;

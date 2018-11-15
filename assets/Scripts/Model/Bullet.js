@@ -30,7 +30,7 @@ cc.Class({
             web.parent = self.node.parent;
             web.position = self.node.position;
             
-            GameManager.SoundManager.playEffect("FX_开网_01");
+            GameManager.SoundManager.playEffect("FX_wang_01");
         }
     },
 });
