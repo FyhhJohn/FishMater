@@ -9,6 +9,7 @@ cc.Class({
         fishConfig: null,
         gunConfig:  null,
         isLogin:    false,
+        notice: null,
     },
 
     ctor(){
@@ -21,6 +22,7 @@ cc.Class({
             password: null,
         }
 
+        this.isLogin = false;
         cc.log("DataManager");
     },
     
@@ -100,5 +102,13 @@ cc.Class({
         UserDefault.setString("userName", this.userInfo.userName);
         UserDefault.setString("password", this.userInfo.password);
     },
+
+    setNotice: function(data){
+        this.notice = data;
+    },
+
+    getNotice: function(){
+        return this.notice;
+    }
 });
 

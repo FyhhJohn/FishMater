@@ -27,6 +27,7 @@ cc.Class({
         _customPop:   null,
         _nameIsValid: false,
         _pswdIsValid: false,
+        _noticeUI:    null,
     },
 
     start () {
@@ -103,6 +104,11 @@ cc.Class({
 
             self.loginNode.active = false;
             GameManager.DataManager.isLogin = true;
+            GameManager.DataManager.setNotice(data["notice"]);
+
+            if( data["notice"] != "" ){
+                self.showNotice();
+            }
         },function(data){
             var info = {
                 title: "提示",
@@ -290,6 +296,22 @@ cc.Class({
                 self._customPop = cc.instantiate(prefab);
                 self.node.addChild(self._customPop, 999)
                 self._customPop.getComponent("CustomPop").show(data,func);
+            });
+        }
+    },
+
+    showNotice: function(){
+        var self = this;
+        if( self._noticeUI ){
+            self._noticeUI.getComponent("NoticeScene").show()
+        }else{
+            cc.loader.loadRes("Prefabs/Notice/noticeUI",function(err,prefab){
+                if( err ){
+                    return;
+                }
+                self._noticeUI = cc.instantiate(prefab);
+                self.node.addChild(self._noticeUI, 999)
+                self._noticeUI.getComponent("NoticeScene").show();
             });
         }
     },
