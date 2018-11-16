@@ -37,6 +37,7 @@ cc.Class({
         _noticeUI:    null,
         _shopUI:      null,
         _settingUI:   null,
+        _rankUI:      null,
     },
 
     start () {
@@ -354,7 +355,7 @@ cc.Class({
         if( self._noticeUI ){
             self._noticeUI.getComponent("NoticeScene").show()
         }else{
-            cc.loader.loadRes("Prefabs/Notice/noticeUI",function(err,prefab){
+            cc.loader.loadRes("Prefabs/Notice/NoticeUI",function(err,prefab){
                 if( err ){
                     return;
                 }
@@ -372,7 +373,7 @@ cc.Class({
 
         this.goldLab.string     = "" + GameManager.DataManager.userInfo.gold;
         this.diamondLab.string  = "" + GameManager.DataManager.userInfo.diamond;
-        this.nickNameLab.string = "账号: "+GameManager.DataManager.userInfo.userName;
+        this.nickNameLab.string = "昵称: "+GameManager.DataManager.userInfo.userName;
 
         this.btnLay.runAction( cc.sequence(cc.moveBy(0.4,0,-135), cc.moveBy(0.2,0,5)) );
     },
@@ -409,7 +410,23 @@ cc.Class({
     },
 
     onRankClicked: function(){
+        GameManager.SoundManager.playEffect("click_01");
 
+        var self = this;
+        if( this._rankUI ){
+            this._rankUI.getComponent("RankScene").show();
+        }else{
+            cc.loader.loadRes("Prefabs/Rank/RankUI",function(err,prefab){
+                if( err ){
+                    return;
+                }
+
+                self._rankUI = cc.instantiate(prefab);
+                self.node.addChild(self._rankUI,999);
+
+                self._rankUI.getComponent("RankScene").show();
+            });
+        }
     },
 
     onSetClicked: function(){
@@ -419,7 +436,7 @@ cc.Class({
         if( this._settingUI ){
             this._settingUI.getComponent("SettingScene").show();
         }else{
-            cc.loader.loadRes("Prefabs/Setting/settingUI",function(err,prefab){
+            cc.loader.loadRes("Prefabs/Setting/SettingUI",function(err,prefab){
                 if( err ){
                     return;
                 }

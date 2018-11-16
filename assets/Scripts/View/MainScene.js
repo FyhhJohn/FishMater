@@ -28,7 +28,7 @@ cc.Class({
         if( this._settingUI ){
             this._settingUI.getComponent("SettingScene").show();
         }else{
-            cc.loader.loadRes("Prefabs/Setting/settingUI",function(err,prefab){
+            cc.loader.loadRes("Prefabs/Setting/SettingUI",function(err,prefab){
                 if( err ){
                     return;
                 }

@@ -81,13 +81,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 175
-      },
-      {
         "__id__": 176
       },
       {
         "__id__": 177
+      },
+      {
+        "__id__": 178
       }
     ],
     "_prefab": null,
@@ -5240,7 +5240,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "账号:12345678",
+    "_N$string": "昵称:12345678",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -5858,7 +5858,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 174
+        "__id__": 175
       }
     ],
     "_prefab": null,
@@ -6296,7 +6296,11 @@
     },
     "duration": 0.1,
     "zoomScale": 1.1,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 174
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -6322,6 +6326,15 @@
     "_N$target": {
       "__id__": 171
     }
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 2
+    },
+    "component": "StartScene",
+    "handler": "onRankClicked",
+    "customEventData": ""
   },
   {
     "__type__": "cc.Widget",
@@ -6435,7 +6448,8 @@
     "_pswdIsValid": false,
     "_noticeUI": null,
     "_shopUI": null,
-    "_settingUI": null
+    "_settingUI": null,
+    "_rankUI": null
   },
   {
     "__type__": "cc.Widget",
