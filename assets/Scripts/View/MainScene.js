@@ -61,6 +61,18 @@ cc.Class({
         }
     },
 
+    onBackClicked: function(){
+        if (GameManager.LoadingUI){
+            GameManager.LoadingUI.destroy();
+            GameManager.LoadingUI = null;
+        }
+        GameManager.SoundManager.playEffect("click_01");
+
+        GameManager.FishFactory.node.getComponent("FishFactory").clearFishPool();
+        GameManager.GameControler.saveInfo();
+        cc.director.loadScene("StartScene");
+    },
+
     onDestroy: function(){
         GameManager.SoundManager.stopEffect();
         GameManager.SoundManager.stopMusic();

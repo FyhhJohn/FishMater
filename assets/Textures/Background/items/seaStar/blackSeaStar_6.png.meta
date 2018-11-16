@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "533b6152-bd5e-4144-b7e8-4eb65e516bfa",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "blackSeaStar_6": {
+      "ver": "1.0.3",
+      "uuid": "b2a67386-f9a0-4d80-beb5-6d70c9d43ef1",
+      "rawTextureUuid": "533b6152-bd5e-4144-b7e8-4eb65e516bfa",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 2,
+      "offsetY": 0.5,
+      "trimX": 4,
+      "trimY": 0,
+      "width": 79,
+      "height": 83,
+      "rawWidth": 83,
+      "rawHeight": 84,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

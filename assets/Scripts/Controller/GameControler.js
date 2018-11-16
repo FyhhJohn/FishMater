@@ -71,6 +71,34 @@ cc.Class({
 
     },
 
+    onEnable: function(){
+
+        var self = this;
+        cc.systemEvent.on("BuyItemSuccess",function(event){
+            var gold = event.detail.gold;
+            var diamond = event.detail.diamond;
+            self.updateGoldValue(gold);      
+            self.updateDiamondValue(diamond);
+
+            GameManager.MainScene.showPop({
+                title: "提示",
+                content: '购买成功',
+            });
+        });
+
+        cc.systemEvent.on("BuyItemFailed",function(event){
+            GameManager.MainScene.showPop({
+                title: "提示",
+                content: event.detail.msg
+            });
+        });
+    },
+
+    onDisable: function(){
+        cc.systemEvent.off("BuyItemSuccess");
+        cc.systemEvent.off("BuyItemFailed");
+    },
+
     onTouchStart: function(event){
         // this._shoot = true;
         // this._touchEvent = event;
@@ -253,9 +281,6 @@ cc.Class({
     },
 
     saveInfo: function(){
-        UserDefault.setInt("gold",GameManager.DataManager.userInfo.gold);
-        UserDefault.setInt("diamond",GameManager.DataManager.userInfo.diamond);
-        UserDefault.setInt("gunIndex",GameManager.DataManager.userInfo.gunIndex);
         var data = {
             userName: GameManager.DataManager.userInfo.userName,
             gold:     GameManager.DataManager.userInfo.gold,

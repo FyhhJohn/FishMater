@@ -24,10 +24,19 @@ cc.Class({
         loginBtn:     cc.Button,
         registerBtn:  cc.Button,
 
+        infoLay:      cc.Node,
+        goldLab:      cc.Label,
+        diamondLab:   cc.Label,
+        nickNameLab:  cc.Label,
+
+        btnLay:       cc.Node,
+
         _customPop:   null,
         _nameIsValid: false,
         _pswdIsValid: false,
         _noticeUI:    null,
+        _shopUI:      null,
+        _settingUI:   null,
     },
 
     start () {
@@ -65,6 +74,44 @@ cc.Class({
             
             this.onLoginIn();
         }
+    },
+
+    onEnable: function(){
+
+        var self = this;
+        cc.systemEvent.on("BuyItemSuccess",function(event){
+            var gold = event.detail.gold;
+            var diamond = event.detail.diamond;
+            self.updateGoldValue(gold);      
+            self.updateDiamondValue(diamond);
+
+            self.showPop({
+                title: "提示",
+                content: '购买成功',
+            });
+        });
+
+        cc.systemEvent.on("BuyItemFailed",function(event){
+            self.showPop({
+                title: "提示",
+                content: event.detail.msg
+            });
+        });
+    },
+
+    onDisable: function(){
+        cc.systemEvent.off("BuyItemSuccess");
+        cc.systemEvent.off("BuyItemFailed");
+    },
+
+    updateGoldValue: function(gold){
+        GameManager.DataManager.userInfo.gold     += parseInt(gold);
+        this.goldLab.string     = "" + GameManager.DataManager.userInfo.gold;
+    },
+    
+    updateDiamondValue: function(diamond){
+        GameManager.DataManager.userInfo.diamond  += parseInt(diamond);
+        this.diamondLab.string  = "" + GameManager.DataManager.userInfo.diamond;
     },
 
     onLoginIn: function(){
@@ -109,6 +156,8 @@ cc.Class({
             if( data["notice"] != "" ){
                 self.showNotice();
             }
+
+            self.showInfo();
         },function(data){
             var info = {
                 title: "提示",
@@ -316,6 +365,18 @@ cc.Class({
         }
     },
 
+    showInfo: function(){
+        var moveAct = cc.moveBy(0.4,0,-210);
+        var moveAct2 = cc.moveBy(0.2,0,10);
+        this.infoLay.runAction( cc.sequence(moveAct,moveAct2) );
+
+        this.goldLab.string     = "" + GameManager.DataManager.userInfo.gold;
+        this.diamondLab.string  = "" + GameManager.DataManager.userInfo.diamond;
+        this.nickNameLab.string = "账号: "+GameManager.DataManager.userInfo.userName;
+
+        this.btnLay.runAction( cc.sequence(cc.moveBy(0.4,0,-135), cc.moveBy(0.2,0,5)) );
+    },
+
     onCloseClicked: function(){
         this.loginNode.active     = false;
         this.chooseNode.active    = true;
@@ -325,5 +386,49 @@ cc.Class({
         this.passwordTip.string   = "";
         this.passwordTip2.string  = "";
         this.nameTip.string       = "";
+    },
+
+    onShopClicked: function(){
+        GameManager.SoundManager.playEffect("click_01");
+
+        cc.log("onShopClicked");
+        var self = this;
+        if( this._shopUI  ){
+            this._shopUI.getComponent("ShopScene").show();
+        }else{
+            cc.loader.loadRes("Prefabs/Shop/ShopUI",function(err,prefab){
+                if( err ){
+                    return;
+                }
+
+                self._shopUI = cc.instantiate(prefab);
+                self.node.addChild(self._shopUI,999);
+                self._shopUI.getComponent("ShopScene").show();
+            });
+        }
+    },
+
+    onRankClicked: function(){
+
+    },
+
+    onSetClicked: function(){
+        GameManager.SoundManager.playEffect("click_01");
+
+        var self = this;
+        if( this._settingUI ){
+            this._settingUI.getComponent("SettingScene").show();
+        }else{
+            cc.loader.loadRes("Prefabs/Setting/settingUI",function(err,prefab){
+                if( err ){
+                    return;
+                }
+
+                self._settingUI = cc.instantiate(prefab);
+                self.node.addChild(self._settingUI,999);
+
+                self._settingUI.getComponent("SettingScene").show();
+            });
+        }
     },
 });

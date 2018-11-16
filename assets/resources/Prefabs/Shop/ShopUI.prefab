@@ -9796,7 +9796,7 @@
       "__id__": 1
     },
     "component": "ShopScene",
-    "handler": "hide",
+    "handler": "onCloseClicked",
     "customEventData": ""
   },
   {

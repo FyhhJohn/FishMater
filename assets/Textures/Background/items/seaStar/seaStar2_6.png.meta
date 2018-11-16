@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "28609c54-a578-4ab7-b31a-45dbab7d1678",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "seaStar2_6": {
+      "ver": "1.0.3",
+      "uuid": "92e7a3f8-ee27-4625-8522-57aeb654479e",
+      "rawTextureUuid": "28609c54-a578-4ab7-b31a-45dbab7d1678",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -1,
+      "trimX": 8,
+      "trimY": 7,
+      "width": 169,
+      "height": 163,
+      "rawWidth": 184,
+      "rawHeight": 175,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

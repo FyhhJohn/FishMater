@@ -49,16 +49,18 @@ cc.Class({
     onTypeClicked: function(event,customData){
         GameManager.SoundManager.playEffect("click_01");
 
-        cc.log(customData);
         this.changeLay(customData);
+    },
+
+    onCloseClicked: function(){
+        GameManager.SoundManager.playEffect("click_01");
+        this.hide();
     },
 
     initItem: function(){
         var config =  GameManager.DataManager.getShopConfig();
         var diamondConfig = config.diamond;
         var goldConfig    = config.gold;
-
-        cc.log(diamondConfig);
 
         for( var i=0; i<this.DiamondItem.length; i++ ){
             let item = this.DiamondItem[i];
@@ -85,7 +87,6 @@ cc.Class({
             btn.clickEvents.push(clickEventHandler);
         }
 
-        cc.log(goldConfig);
         for( var j=0; j<this.GoldItem.length; j++ ){
             let item = this.GoldItem[j];
             let name = item.getChildByName("name");
@@ -125,22 +126,23 @@ cc.Class({
                 userName: GameManager.DataManager.userInfo.userName,
             }
             GameManager.HttpManager.buyItem(data,function(data){
-                var gold = data.gold;
-                var diamond = data.diamond;
-                GameManager.GameControler.updateGoldValue(customEventData.num);
-                GameManager.GameControler.updateDiamondValue(-customEventData.num);
-                GameManager.MainScene.showPop({
-                    title: "提示",
-                    content: '购买成功',
+                var gold = parseInt(data.gold);
+                var diamond = parseInt(data.diamond);
+
+                cc.systemEvent.emit("BuyItemSuccess",{
+                    gold: gold,
+                    diamond: diamond
                 });
             },function(data){
-                GameManager.MainScene.showPop({
-                    title: "提示",
-                    content: data,
+                cc.systemEvent.emit("BuyItemFailed",{
+                    msg: data
                 });
             });
         }else{
-            GameManager.GameControler.updateDiamondValue(customEventData.num);
+            cc.systemEvent.emit("BuyItemSuccess",{
+                gold: 0,
+                diamond: customEventData.num
+            });
         }
     },
 
