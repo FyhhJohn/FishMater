@@ -10,8 +10,8 @@ cc.Class({
     },
 
     init: function(data){
-        this.userNameLab.string = data.name;
+        this.userNameLab.string = data.userName;
         this.rankLab.string = data.rank;
-        this.scoreLab.string = data.score;
+        this.scoreLab.string = data.gold;
     }
 });

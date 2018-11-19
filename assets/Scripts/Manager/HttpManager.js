@@ -127,4 +127,18 @@ cc.Class({
             }
         },true);
     },
+
+    rank: function(data,cbSuccess,cbFail){
+        var sendData = {
+            command: "rankList",
+        }
+
+        this.send(sendData, function(data){
+            if( data["result"] == 0 ){
+                if(cbSuccess) cbSuccess(data.data);
+            }else{
+                if(cbFail) cbFail(data.data);
+            }
+        },true);
+    }
 });

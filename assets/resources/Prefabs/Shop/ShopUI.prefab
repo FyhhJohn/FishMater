@@ -247,7 +247,7 @@
       "__id__": 1
     },
     "component": "ShopScene",
-    "handler": "hide",
+    "handler": "onCloseClicked",
     "customEventData": ""
   },
   {
@@ -331,7 +331,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 564
+      "y": 635
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9849,8 +9849,8 @@
     "_alignFlags": 45,
     "_left": 207,
     "_right": 207,
-    "_top": -444,
-    "_bottom": 684,
+    "_top": -515,
+    "_bottom": 755,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
@@ -9973,7 +9973,8 @@
       {
         "__id__": 258
       }
-    ]
+    ],
+    "_isClose": false
   },
   {
     "__type__": "cc.PrefabInfo",

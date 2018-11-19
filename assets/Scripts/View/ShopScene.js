@@ -17,6 +17,8 @@ cc.Class({
 
         DiamondItem: [cc.Node],
         GoldItem: [cc.Node],
+
+        _isClose: false,
     },
 
     onLoad: function(){
@@ -25,6 +27,7 @@ cc.Class({
     },
 
     show: function(){
+        this._isClose = false;
         this.bg.stopAllActions();
         this.node.active = true;
         var desPos = cc.v2(0,-30);
@@ -35,6 +38,8 @@ cc.Class({
     },
 
     hide: function(){
+        if( this._isClose ) return;
+        this._isClose = true;
         this.bg.stopAllActions();
         var desPos = cc.v2(0,-30);
         var desPos2 = cc.v2(0,360+this.bg.height/2);
